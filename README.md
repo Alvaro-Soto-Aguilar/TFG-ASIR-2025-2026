@@ -1,6 +1,5 @@
 # 🏥 Infraestructura de Red Segura y Gestión Médica - Clínica Brossi, S.L.
 
-[![Licencia](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Curso](https://img.shields.io/badge/Curso-2025--2026-green)](https://github.com/tu-usuario)
 [![Especialidad](https://img.shields.io/badge/TFG-ASIR-orange)](https://www.educa2.madrid.org)
 
