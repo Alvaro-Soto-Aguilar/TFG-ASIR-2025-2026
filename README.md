@@ -1,16 +1,16 @@
 # 🏥 Infraestructura de Red Segura y Gestión Médica - Clínica Brossi, S.L.
 
-[![Curso](https://img.shields.io/badge/Curso-2025--2026-green)](https://github.com/tu-usuario)
+[![Curso](https://img.shields.io/badge/Curso-2025--2026-green)]
 [![Especialidad](https://img.shields.io/badge/TFG-ASIR-orange)](https://www.educa2.madrid.org)
 
-Este repositorio contiene el **Proyecto de Fin de Grado (TFG)** para el ciclo de Administración de Sistemas Informáticos en Red. El proyecto aborda la digitalización integral de la **Clínica Brossi, S.L.**, combinando administración de sistemas críticos, seguridad perimetral y desarrollo web moderno.
+Este repositorio contiene el **Proyecto de Fin de Grado (TFG)** para el ciclo de Administración de Sistemas Informáticos en Red. El proyecto aborda la digitalización integral de la **Clínica Brossi, S.L.**. **Poner más en la descripción**.
 
 ---
 
 ## 📖 Resumen del Proyecto
-El objetivo es implementar una infraestructura de red empresarial robusta y una plataforma web segura conectada a una base de datos en la nube. Se garantiza el cumplimiento del **RGPD** mediante la delimitación de accesos (RBAC) para personal administrativo, médicos, directores y pacientes, asegurando la integridad y privacidad de los datos de salud.
+El objetivo es implementar una infraestructura de red empresarial y una plataforma web segura conectada a una base de datos en la nube. Se garantiza el cumplimiento del **RGPD** mediante la delimitación de accesos para personal administrativo, médicos, directores y pacientes, asegurando la integridad y privacidad de los datos de salud.
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Tecnologías
 
 ### Sistemas y Redes
 * **Virtualización:** VirtualBox (Windows Server 2025, Ubuntu Server, Windows 11).
@@ -22,22 +22,22 @@ El objetivo es implementar una infraestructura de red empresarial robusta y una 
 * **Frontend:** HTML5, CSS3, JavaScript.
 * **Backend:** PHP.
 * **Base de Datos:** Supabase (PostgreSQL en la nube).
-* **Hosting:** Hostinger.
+* **Hosting:** Hostinger(seguramente).
 * **Diseño:** Draw.io / Eraser.io.
 
 ---
 
 ## 🚀 Funcionalidades Clave
 
--   **Gestión de Citas Inteligente:** Sistema de reserva y anulación en tiempo real.
--   **Sistema de Notificaciones:** Alertas automáticas para pacientes sobre citas liberadas.
--   **Seguridad de Acceso:** Implementación de políticas de grupo (GPOs) para restringir herramientas críticas en la red local.
--   **Acceso Remoto Seguro:** Configuración de túneles VPN para el personal autorizado.
--   **Chatbot de Asistencia:** IA integrada para consultas rápidas de pacientes.
+-   **Gestión de Citas inteligente:** Sistema de reserva y anulación en tiempo real.
+-   **Sistema de notificaciones:** Alertas automáticas para pacientes sobre citas liberadas.
+-   **Seguridad de acceso:** Implementación de políticas de grupo (GPOs) para restringir herramientas críticas en la red local.
+-   **Acceso remoto seguro:** Configuración de túneles VPN para el personal autorizado.
+-   **Chatbot de asistencia:** IA integrada para consultas rápidas de pacientes.
 
 ---
 
-## 📂 Estructura del Repositorio
+## 📂 Estructura del repositorio
 
 * `/docs`: Documentación del TFG en PDF y manuales de usuario.
 * `/src`: Código fuente de la plataforma web (PHP, JS, CSS).
