@@ -70,3 +70,6 @@ El proyecto se ha gestionado siguiendo una planificación detallada reflejada en
 **Álvaro Soto Aguilar** *Estudiante de ASIR de la Universidad Alfonso X el Sabio(UAX) - Curso 2025/2026*
 
 ---
+
+## 👨‍🏫 Tutor
+**Julián del Castillo Pintado**
