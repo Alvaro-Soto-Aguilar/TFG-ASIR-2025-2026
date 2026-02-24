@@ -1,7 +1,7 @@
 # 🏥 Infraestructura de red segura y gestión médica - Clínica Brossi, S.L.
 
-[![Curso](https://img.shields.io/badge/Curso-2025--2026-green)]
-[![Especialidad](https://img.shields.io/badge/TFG-ASIR-orange)](https://www.educa2.madrid.org)
+![Curso](https://img.shields.io/badge/Curso-2025--2026-green)
+![Especialidad](https://img.shields.io/badge/TFG-ASIR-orange)(https://www.educa2.madrid.org)
 
 Este repositorio contiene el **Proyecto de Fin de Grado (TFG)** para el ciclo de Administración de Sistemas Informáticos en Red. El proyecto aborda la digitalización integral de la **Clínica Brossi, S.L.**. **Poner más en la descripción**.
 
