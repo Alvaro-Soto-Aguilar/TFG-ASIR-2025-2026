@@ -1,4 +1,4 @@
-# 🏥 Infraestructura de Red Segura y Gestión Médica - Clínica Brossi, S.L.
+# 🏥 Infraestructura de red segura y gestión médica - Clínica Brossi, S.L.
 
 [![Curso](https://img.shields.io/badge/Curso-2025--2026-green)]
 [![Especialidad](https://img.shields.io/badge/TFG-ASIR-orange)](https://www.educa2.madrid.org)
