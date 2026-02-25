@@ -8,7 +8,7 @@ Este repositorio contiene el **Proyecto de Fin de Grado (TFG)** para el ciclo de
 ---
 
 ## 📖 Resumen del proyecto
-El objetivo es implementar una infraestructura de red empresarial y una plataforma web segura conectada a una base de datos en la nube. Se garantiza el cumplimiento del **RGPD** mediante la delimitación de accesos para personal administrativo, médicos, directores y pacientes, asegurando la integridad y privacidad de los datos de salud.
+Poner **resumen del proyecto**.
 
 ---
 
