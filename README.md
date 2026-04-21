@@ -1,9 +1,9 @@
 # 🏥 Clínica Brossi.
 
 ![Curso](https://img.shields.io/badge/Curso-2025--2026-green)
-![Especialidad](https://img.shields.io/badge/TFG-ASIR-orange).
+![Especialidad](https://img.shields.io/badge/PFC-ASIR-orange).
 
-Este repositorio contiene el **Proyecto de Fin de Grado (TFG)** para el ciclo de *Administración de Sistemas Informáticos en Red(ASIR)*. 
+Este repositorio contiene el **Proyecto de Fin de Grado (PFC)** para el ciclo de *Administración de Sistemas Informáticos en Red(ASIR)*. 
 
 ---
 
