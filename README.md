@@ -8,7 +8,7 @@ Este repositorio contiene el **Proyecto de Fin de Grado (TFG)** para el ciclo de
 ---
 
 ## 📖 Resumen del proyecto
-Poner **resumen del proyecto**.
+En el apartado de "images", puedes ver y descargar las imágenes utilizadas.Poner **resumen del proyecto**.
 
 ---
 
