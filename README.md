@@ -1,4 +1,4 @@
-# 🏥 Infraestructura de red segura y gestión médica.
+# 🏥 Clínica Brossi.
 
 ![Curso](https://img.shields.io/badge/Curso-2025--2026-green)
 ![Especialidad](https://img.shields.io/badge/TFG-ASIR-orange).
