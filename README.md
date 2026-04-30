@@ -13,8 +13,8 @@ El proyecto consiste en el diseño, desarrollo y despliegue de la infraestructur
 La **Clínica Brossi** es una plataforma web desarrollada para digitalizar la interacción entre el paciente y el centro sanitario. El sistema permite:
 * Visualización de servicios médicos y compromisos ambientales (ISO 14001).
 * Sistema de acceso seguro para pacientes mediante credenciales validadas.
-* Panel de control interactivo para la gestión de citas médicas (Alta, Modificación y Anulación).
-* Herramientas de accesibilidad integradas (Contraste y tamaño de fuente).
+* Panel de control interactivo para la gestión de citas médicas (alta, modificación y anulación).
+* Herramientas de accesibilidad integradas (contraste y tamaño de fuente).
 
 ---
 
@@ -26,10 +26,10 @@ La **Clínica Brossi** es una plataforma web desarrollada para digitalizar la in
 
 ## 🛠️ Tecnologías Utilizadas
 Para este proyecto de ASIR se han empleado las siguientes tecnologías:
-* **Frontend:** HTML5, CSS3 (Diseño responsivo y accesible).
+* **Desarrollo web:** HTML5, CSS3 (Diseño accesible).
 * **Lógica:** JavaScript (Validación de formularios y gestión de estados de citas).
-* **Iconografía:** Font Awesome 6.0.
-* **Control de Versiones:** Git y GitHub para la gestión del ciclo de vida del software.
+* **Virtualización:** VirtualBox (Windows Server 2025,Windows 11 y Ubuntu Server).
+* **Control de versiones:** Git y GitHub para la gestión del ciclo de vida del software.
 
 ---
 
