@@ -34,5 +34,5 @@ En el sitio web se han implementado una serie de mejoras con respecto a otras p�
 
 ## 👨‍💻 Autor
 <p align="justify">
-Álvaro Soto Aguilar</b> <b>Estudiante de ASIR de la Universidad Alfonso X el Sabio (UAX) - Curso 2024/2026
+Álvaro Soto Aguilar Estudiante de ASIR de la Universidad Alfonso X el Sabio (UAX) - Curso 2024/2026
 </p>
