@@ -10,7 +10,7 @@ El proyecto consiste en poner el resumen del proyecto.
 ---
 
 ## 📖 Resumen del Proyecto
-
+Hacer antes del 3 de mayo a las 22:30 de la noche (entrega del proyecto)
 
 ---
 
