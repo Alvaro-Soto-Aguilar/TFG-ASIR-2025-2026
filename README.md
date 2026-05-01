@@ -5,8 +5,6 @@
 
 Este repositorio contiene el **Proyecto Fin de Carrera (PFC)** para el ciclo de *Administración de Sistemas Informáticos en Red (ASIR)*. 
 
-El proyecto consiste en poner el resumen del proyecto.
-
 ---
 
 ## 📖 Resumen del Proyecto
