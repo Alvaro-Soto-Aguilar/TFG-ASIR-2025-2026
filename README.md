@@ -37,9 +37,11 @@ Para la realización de este proyecto  se ha utilizado una metodología incremen
 
 ## 💻 Tecnología utilizada
 <p align="justify">
-  Cisco Packet Tracer.
-  Draw.io
-  Eraser.io
+  Para la elaboración de este proyecto, he utilizado la siguiente tecnología:
+  - Cisco Packet Tracer.
+  -Cisco Packet Tracer.
+  -Draw.io
+  -Eraser.io
   SupaBase
   HTML
   CSS
