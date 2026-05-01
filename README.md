@@ -41,18 +41,19 @@ Para la realización de este proyecto  se ha utilizado una metodología incremen
 Para la elaboración de este proyecto, he utilizado la siguiente tecnología:
 
 
-*   **Cisco Packet Tracer:** D
-*   **Draw.io:** D
-*   **Eraser.io:** D
-*   **Supabase:** D
-*   **HTML:** D
-*   **CSS:** D
-*   **PHP:** D
-*   **JS (JavaScript):** D
-*   **LucidChart:** D
-*   **Microsoft Excel:** D
-*   **AeonFree:** D
-*   **MailEnable Admin:** D
+*   **Cisco Packet Tracer:**
+*   **Draw.io:**
+*   **Eraser.io:**
+*   **Supabase:**
+*   **HTML:**
+*   **CSS:**
+*   **PHP:**
+*   **JS (JavaScript):**
+*   **LucidChart:**
+*   **Microsoft Excel:**
+*   **AeonFree:**
+*   **MailEnable Admin:**
+
 </div>
 ---
 
