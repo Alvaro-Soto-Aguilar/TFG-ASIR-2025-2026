@@ -4,7 +4,7 @@
 ![Especialidad](https://img.shields.io/badge/PFC-ASIR-orange)
 
 <p align="justify">
-  Este repositorio contiene el **Proyecto Fin de Carrera (PFC)** para el ciclo de *Administración de Sistemas Informáticos en Red (ASIR)*.
+  Este repositorio contiene el Proyecto Fin de Carrera (PFC) para el ciclo de Administración de Sistemas Informáticos en Red (ASIR).
 </p>
 
 ---
@@ -34,5 +34,5 @@ En el sitio web se han implementado una serie de mejoras con respecto a otras p�
 
 ## 👨‍💻 Autor
 <p align="justify">
-**Álvaro Soto Aguilar** *Estudiante de ASIR de la Universidad Alfonso X el Sabio (UAX) - Curso 2024/2026*
+<b>Álvaro Soto Aguilar</b> <b>Estudiante de ASIR de la Universidad Alfonso X el Sabio (UAX) - Curso 2024/2026</b>
 </p>
