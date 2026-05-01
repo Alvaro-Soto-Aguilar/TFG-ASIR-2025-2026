@@ -50,6 +50,7 @@ Para la elaboración de este proyecto, he utilizado la siguiente tecnología:
 *   **PHP:**
 *   **JS (JavaScript):**
 *   **LucidChart:**
+*   **SoftEther VPN Client Manager:**
 *   **Microsoft Excel:**
 *   **AeonFree:**
 *   **MailEnable Admin:**
