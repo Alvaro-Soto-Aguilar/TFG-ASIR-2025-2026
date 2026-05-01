@@ -30,7 +30,7 @@ Este proyecto permite que la clínica tenga todos los datos perfectamente almace
 En el sitio web se han implementado una serie de mejoras con respecto a otras páginas web de la competencia.
 </p>
 
-## Metodología
+## 🧱 Metodología
 <p align="justify">
 Para la realización de este proyecto  se ha utilizado una metodología incremental que consiste en hacer el proyecto por partes, diviéndolo en pequeños módulos más pequeños de manera que cada una de estas partes incorporan funciones adicionales sobre la parte anterior, permitiendo revisar los avances, modificar los posibles errores y entregar los resultados de forma progresiva.
 </p>
