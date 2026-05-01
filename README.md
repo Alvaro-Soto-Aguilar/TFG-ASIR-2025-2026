@@ -30,10 +30,12 @@ Este proyecto permite que la clínica tenga todos los datos perfectamente almace
 En el sitio web se han implementado una serie de mejoras con respecto a otras páginas web de la competencia.
 </p>
 
-## 💻 Tecnologías utilizadas
+## Metodología
 <p align="justify">
 Para la realización de este proyecto  se ha seguido una metodología incremental que consiste en hacer el proyecto por partes, diviendolo en pequeños módulos más peqieños de manera que cada una de estas partes incorporen funciones adicionales sobre la parte anterior, permitiendo revisar los avances, modificar los posibles errores y entregar los resultados de forma progresiva.
 </p>
+
+## 💻 Tecnologías utilizadas
 ---
 
 ## 👨‍💻 Autor
