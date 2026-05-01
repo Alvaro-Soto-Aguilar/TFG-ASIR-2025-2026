@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atención al paciente</title>
+    <style>
+        :root {
+            --azul-brossi: #0067b1;
+            --azul-oscuro: #003057;
+            --fondo: #f4f7f9;
+        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--fondo); padding: 20px; display: flex; justify-content: center; }
+        .form-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); width: 100%; max-width: 500px; }
+        
+    
+        h2 { color: var(--azul-oscuro); text-align: center; margin-bottom: 10px; text-transform: lowercase; }
+        h2::first-letter { text-transform: uppercase; } 
+        
+        .badge-calidad { text-align: center; margin-bottom: 20px; }
+        .badge-text { background: #eef7ff; color: var(--azul-brossi); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--azul-brossi); }
+        
+        .compromiso { text-align: center; color: #555; font-size: 0.95rem; margin-bottom: 25px; font-style: italic; }
+        
+        .input-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 600; color: var(--azul-oscuro); margin-bottom: 5px; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        textarea { height: 100px; resize: none; }
+        
+        .btn-enviar { width: 100%; padding: 15px; background: var(--azul-brossi); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .btn-enviar:hover { background: var(--azul-oscuro); }
+        .btn-volver { display: block; text-align: center; margin-top: 15px; color: var(--azul-brossi); text-decoration: none; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<div class="form-card">
+    <h2>atención al paciente</h2>
+    
+    <div class="badge-calidad">
+        <span class="badge-text">✓ Certificación de Calidad ISO 9001</span>
+    </div>
+
+    <p class="compromiso">Nos comprometemos a contestar en un plazo máximo de 24 horas.</p>
+
+    <form id="pacienteForm">
+        <div class="input-group">
+            <label>Nombre y Apellido</label>
+            <input type="text" placeholder="Ej: Juan Pérez" required>
+        </div>
+        <div class="input-group">
+            <label>DNI</label>
+            <input type="text" placeholder="Ej: 12345678A" required>
+        </div>
+        <div class="input-group">
+            <label>Teléfono</label>
+            <input type="tel" placeholder="Ej: 600 000 000" required>
+        </div>
+        <div class="input-group">
+            <label>Correo Electrónico</label>
+            <input type="email" placeholder="ejemplo@correo.com" required>
+        </div>
+        <div class="input-group">
+            <label>Motivo de la consulta</label>
+            <select required>
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option>Consulta Médica</option>
+                <option>Sugerencia</option>
+                <option>Reclamación</option>
+                <option>Otro</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Mensaje</label>
+            <textarea placeholder="Escribe aquí tu consulta o comentario..." required></textarea>
+        </div>
+        <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+    </form>
+    
+    <a href="index.html" class="btn-volver">← Volver al inicio</a>
+</div>
+
+<script>
+    document.getElementById('pacienteForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        alert("¡Gracias! Hemos recibido tu mensaje y el equipo de atención al paciente se pondrá en contacto contigo pronto.");
+        window.location.href = "index.html"; 
+    });
+</script>
+
+</body>
+</html>

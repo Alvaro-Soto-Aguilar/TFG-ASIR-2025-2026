@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Encuesta de satisfacción</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; padding: 20px; display: flex; justify-content: center; }
+        .encuesta-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 700px; }
+        .logo { width: 150px; display: block; margin: 0 auto 20px auto; }
+        .pregunta { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .rating-group { display: flex; justify-content: space-between; margin-top: 10px; gap: 5px; flex-wrap: wrap; }
+        .rating-btn { padding: 8px 12px; border: 1px solid #00d4ff; background: white; cursor: pointer; border-radius: 5px; font-weight: bold; }
+        .rating-btn.active { background: #00d4ff; color: white; }
+        #mensaje-exito { display: none; margin-top: 20px; padding: 20px; background: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 5px; font-weight: bold; text-align: center; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+<div class="encuesta-card">
+    <img src="logo clinica.png" alt="Logo Clínica Brossi" class="logo">
+    <h2 style="text-align: center;">Encuesta de satisfacción</h2>
+    <p style="text-align: center; color: #666;">Valora del 0 al 10 los siguientes aspectos:</p>
+
+    <div id="contenedor-preguntas"></div>
+
+    <div class="pregunta" style="border: none;">
+        <label><strong>¿Cómo podemos mejorar?</strong></label>
+        <textarea id="sugerencia" style="width: 100%; height: 80px; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc; padding: 10px; box-sizing: border-box;" placeholder="Cuéntanos qué podemos hacer mejor..."></textarea>
+    </div>
+
+    <button onclick="enviarEncuesta()" style="width: 100%; padding: 15px; background: #00d4ff; border: none; color: white; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 1.1rem; margin-top: 20px;">
+        Enviar ahora
+    </button>
+
+    <div id="mensaje-exito">Nos ha llegado la encuesta de satisfacción, muchas gracias.</div>
+</div>
+
+<script>
+    const preguntas = [
+        "Atención al recibirte en recepción", "Limpieza de las instalaciones", 
+        "Tiempo de espera para ser atendido", "Amabilidad del personal médico", 
+        "Claridad en las explicaciones recibidas", "Privacidad durante la consulta", 
+        "Facilidad para pedir cita", "Comodidad de la sala de espera", 
+        "Disponibilidad de horario"
+    ];
+
+    const contenedor = document.getElementById('contenedor-preguntas');
+
+    preguntas.forEach((pregunta, index) => {
+        let div = document.createElement('div');
+        div.className = 'pregunta';
+        div.innerHTML = `<label>${index + 1}. ${pregunta}</label><div class="rating-group" data-q="${index}"></div>`;
+        contenedor.appendChild(div);
+    });
+
+    document.querySelectorAll('.rating-group').forEach(group => {
+        for(let i=0; i<=10; i++) {
+            let btn = document.createElement('button');
+            btn.className = 'rating-btn';
+            btn.innerText = i;
+            btn.onclick = function() {
+                group.querySelectorAll('.rating-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            };
+            group.appendChild(btn);
+        }
+    });
+
+    function enviarEncuesta() { 
+        if(document.querySelectorAll('.rating-btn.active').length < 9) {
+            alert('Por favor, responde a todas las preguntas antes de enviar.');
+        } else if (document.getElementById('sugerencia').value.trim() === "") {
+            alert('Por favor, cuéntanos cómo podemos mejorar en el cuadro de texto.');
+        } else {
+            document.getElementById('mensaje-exito').style.display = 'block';
+        }
+    }
+</script>
+</body>
+</html>

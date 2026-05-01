@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Brossi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+
+        .sostenibilidad-grid {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.sos-card {
+    max-width: 500px;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: #f5f5f5;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.sos-card h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.sos-card ul {
+    padding-left: 20px;
+}
+
+.sos-card li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.icono {
+    width: 76px;
+    margin-bottom: 15px;
+}
+
+    #btn-finalizar {
+    width: 100%;
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: none;
+    border-top: 1px solid #f5c6cb;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.3s;
+}
+
+#btn-finalizar:hover {
+    background-color: #f1b0b7;
+}
+
+        :root {
+            --azul-oscuro: #1a4b8c;
+            --azul-medio: #2563eb;
+            --azul-claro: #f0f7ff;
+            --blanco: #ffffff;
+            --gris: #555;
+            --negro: #222;
+            --acento: #38bdf8;
+            --verde-sostenible: #2d6a4f;
+            --verde-claro: #ecfdf5;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; color: var(--gris); line-height: 1.6; scroll-behavior: smooth; }
+
+        /*BOTÓN CITA*/
+        .btn-cita {
+            background-color: var(--azul-medio);
+            color: white !important;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+        .btn-cita:hover { background-color: var(--azul-oscuro); }
+
+        /*NAVEGACIÓN*/
+nav { 
+    display: flex;                
+    justify-content: space-between; 
+    align-items: center;          
+    
+    background-color: var(--blanco); 
+    padding: 10px 10%;            
+    border-bottom: 1px solid var(--borde); 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+}
+.logo {
+    text-align: center;
+    margin-bottom: 25px; 
+}
+
+.logo img { 
+    height: 120px; 
+    width: auto; 
+    transition: transform 0.3s ease; 
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+.nav-links { display: flex; align-items: center; gap: 25px; }
+
+.nav-links a:not(.btn-cita) { 
+    text-decoration: none; 
+    color: var(--azul-oscuro); 
+    font-weight: bold; 
+    transition: color 0.3s; 
+    cursor: pointer;
+}
+
+
+.dropdown { 
+    position: relative; 
+    display: inline-block; 
+    padding: 15px 0;
+}
+
+.dropbtn { 
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    color: var(--azul-oscuro); 
+    font-weight: bold; 
+    font-size: 1rem; 
+    font-family: inherit; 
+    display: flex; 
+    align-items: center; 
+    gap: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute; 
+    right: 0;
+    top: 100%;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1001;
+    border-radius: 8px;
+    padding: 10px 0;
+    border: 1px solid #e1e4e8;
+}
+
+
+.dropdown:hover .dropdown-content { 
+    display: block; 
+}
+
+.dropdown-content a {
+    color: var(--azul-oscuro) !important;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-weight: 500 !important;
+}
+
+.dropdown-content a:hover { background-color: #f0f7ff; }
+
+.nav-promo {
+    color: #ff4757 ; 
+    font-weight: 800;
+    text-transform: uppercase;
+    border: 1px solid #ff4757;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.nav-promo:hover {
+    background-color: #ff4757;
+    color: white;
+}
+
+    
+        .hero { background: linear-gradient(rgba(13, 41, 77, 0.8), rgba(26, 75, 140, 0.6)), url('https://niveldiezdental.es/wp-content/uploads/2022/07/2-Recepcion-1.jpg'); background-size: cover; background-position: center; height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--blanco); padding: 100px 20px 0 20px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; max-width: 900px; }
+        .hero p { font-size: 1.4rem; margin-bottom: 40px; }
+
+
+        .features-inicio { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; width: 90%; max-width: 1200px; margin: -60px auto 50px; z-index: 10; position: relative; }
+        .feature-item { background: var(--blanco); padding: 30px; text-align: center; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-bottom: 4px solid var(--azul-medio); }
+        .feature-item i { font-size: 2rem; color: var(--azul-medio); margin-bottom: 15px; }
+
+
+        .sobre-nosotros { padding: 80px 5%; text-align: center; max-width: 800px; margin: 0 auto; }
+        .sobre-nosotros h2 { color: var(--azul-oscuro); margin-bottom: 20px; }
+
+
+        .servicios { padding: 80px 5%; text-align: center; background: var(--azul-claro); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .card { background: var(--blanco); padding: 35px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card i { font-size: 2.5rem; color: var(--azul-medio); margin-bottom: 20px; }
+
+
+        .medicos-section { padding: 80px 5%; text-align: center; }
+        .medicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto 0; }
+        .medico-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding-bottom: 20px; }
+        .medico-card img { width: 100%; height: 300px; object-fit: cover; display: block; }
+        .medico-info { padding: 20px; }
+        .medico-info h3 { margin: 10px 0; color: var(--azul-oscuro); }
+        .colegiado { font-size: 0.85rem; color: #777; display: block; margin-bottom: 10px; }
+        
+        .disponibilidad-box { background: var(--azul-claro); padding: 15px; border-radius: 8px; font-size: 0.9rem; text-align: left; }
+        .disponibilidad-box strong { color: var(--azul-oscuro); display: block; margin-bottom: 5px; }
+        .disponibilidad-box ul { list-style: none; padding: 0; margin: 0; }
+        .disponibilidad-box li { display: flex; justify-content: space-between; border-bottom: 1px solid #dbeafe; padding: 3px 0; }
+
+
+.galeria-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; 
+    max-width: 1200px; 
+    margin: 40px auto; 
+    padding: 0 5%; 
+}
+
+.galeria-item { 
+    text-align: center; 
+    border: 1px solid #e0e0e0; 
+    padding: 15px; 
+    border-radius: 12px; 
+    background: #fff;
+    transition: transform 0.3s; 
+}
+
+
+.galeria-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.galeria-item img { 
+    display: block;
+    width: 100%; 
+    height: 250px;
+    object-fit: cover; 
+    border-radius: 8px; 
+    margin-bottom: 15px; 
+}
+
+.galeria-item h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 10px 0 0 0;
+}
+
+
+        .sostenibilidad { padding: 100px 5%; background: var(--blanco); text-align: center; }
+        .sostenibilidad-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 40px auto 0; }
+        .sos-card { background: var(--verde-claro); padding: 40px; border-radius: 20px; text-align: left; }
+        
+
+        .certificaciones-container { display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 40px; flex-wrap: wrap; }
+        .iso-logo { height: 100px; width: auto; transition: transform 0.3s; }
+        .iso-logo-grande { height: 160px; width: auto; transition: transform 0.3s; }
+        .iso-logo:hover, .iso-logo-grande:hover { transform: scale(1.05); }
+
+
+        .contacto { padding: 80px 5%; background: var(--azul-oscuro); color: var(--blanco); }
+        .contacto-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1100px; margin: 0 auto; }
+        .info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        footer { background: var(--negro); color: var(--blanco); text-align: center; padding: 30px; }
+       
+        .feature-item a:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.feature-item i {
+    cursor: pointer;
+}
+
+.features-inicio {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.feature-item {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/*ESTILOS DEL ASISTENTE VIRTUAL*/
+
+
+#chat-bubble {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #0067b1, #003057);
+    color: white;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: transform 0.3s ease;
+}
+#chat-bubble:hover { transform: scale(1.1); }
+
+/* Ventana de chat */
+#chat-window {
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    width: 320px;
+    height: 450px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: none; 
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9999;
+    border: 1px solid #ddd;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+#chat-header { 
+    background: #003057; 
+    color: white; 
+    padding: 15px; 
+    display: flex; 
+    justify-content: space-between; 
+    font-weight: 600; 
+    font-size: 0.95rem;
+}
+#chat-header button { background: none; border: none; color: white; cursor: pointer; font-size: 20px; }
+
+
+#chat-messages { 
+    flex: 1; 
+    padding: 15px; 
+    overflow-y: auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    background: #f4f7f9; 
+}
+
+.msg { 
+    padding: 10px 15px; 
+    border-radius: 15px; 
+    max-width: 85%; 
+    font-size: 0.9rem; 
+    line-height: 1.4;
+}
+.bot { background: white; align-self: flex-start; border: 1px solid #d1d9e0; color: #333; }
+.user { background: #0067b1; color: white; align-self: flex-end; }
+
+
+#chat-input { display: flex; padding: 12px; border-top: 1px solid #eee; background: white; }
+#chat-input input { flex: 1; border: 1px solid #ddd; padding: 10px; border-radius: 10px; outline: none; margin-right: 5px; }
+#chat-input button { background: #0067b1; color: white; border: none; padding: 10px 15px; border-radius: 10px; cursor: pointer; }
+
+
+.high-contrast { 
+    border: 2px solid black ; 
+    font-weight: bold;
+}
+
+
+.large-text { 
+    font-size: 1.2rem ; 
+    line-height: 1.6 ;
+}
+
+
+.accesibilidad-bar { margin: 10px; display: flex; gap: 5px; }
+
+
+.colorblind-mode {
+    filter: grayscale(80%) contrast(150%);
+    border: 2px solid #000;
+}
+
+
+.colorblind-mode p, .colorblind-mode h1, .colorblind-mode h2 {
+    color: #000 ;
+    background-color: #fff ;
+    font-weight: 700 ;
+}
+    </style>
+</head>
+<body>  
+   <div id="banner-cookies" style="display:none; position:fixed; bottom:20px; left:20px; right:20px; background:white; padding:25px; border-radius:15px; box-shadow: 0 5px 25px rgba(0,0,0,0.2); z-index: 9999; border: 2px solid #1a4b8c; font-family: 'Segoe UI', sans-serif;">
+    <p style="font-size: 15px; color: #333; line-height: 1.6; margin-bottom: 20px;">
+        Este sitio web utiliza cookies propias y de terceros para analizar cómo navegas, facilitarte compartir contenidos en redes sociales y mejorar tu experiencia de navegación. Puedes aceptar todas las cookies, rechazarlas y personalizarlas según tus preferencias. Puedes hacerlo en nuestra <b><a href="cookies.html" style="color:#1a4b8c; text-decoration: underline;">política de cookies</a></b>.
+    </p>
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <button onclick="aceptarTodas()" style="padding:12px 20px; background:#2d6a4f; color:white; border:none; border-radius:5px; cursor:pointer; flex: 1; font-weight: bold;">ACEPTAR TODAS</button>
+        <button onclick="rechazarTodas()" style="padding:12px 20px; background:#dc3545; color:white; border:none; border-radius:5px; cursor:pointer; flex: 1; font-weight: bold;">RECHAZAR TODAS</button>
+        <button onclick="abrirConfiguracion()" style="padding:12px 20px; background:white; color:#1a4b8c; border:2px solid #1a4b8c; border-radius:5px; cursor:pointer; flex: 1; font-weight: bold;">CONFIGURAR</button>
+    </div>
+</div>
+
+<div id="panel-cookies" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10000; align-items:center; justify-content:center; font-family: 'Segoe UI', sans-serif;">
+    <div style="background:white; padding:30px; border-radius:15px; max-width:500px; width:90%;">
+        <h2 style="color: #1a4b8c; margin-top: 0;">Personalizar Cookies</h2>
+        <div style="padding:12px 0; border-bottom:1px solid #eee; display: flex; justify-content: space-between;">
+            <span><strong>Estrictamente necesarias</strong></span>
+            <input type="checkbox" checked disabled>
+        </div>
+        <div style="padding:12px 0; border-bottom:1px solid #eee; display: flex; justify-content: space-between;">
+            <span><strong>De preferencias</strong></span>
+            <input type="checkbox">
+        </div>
+        <div style="padding:12px 0; border-bottom:1px solid #eee; display: flex; justify-content: space-between;">
+            <span><strong>De estadísticas</strong></span>
+            <input type="checkbox">
+        </div>
+        <div style="padding:12px 0; margin-bottom:25px; display: flex; justify-content: space-between;">
+            <span><strong>De marketing</strong></span>
+            <input type="checkbox">
+        </div>
+        <button onclick="guardarPersonalizacion()" style="width:100%; padding:15px; background:#1a4b8c; color:white; border:none; border-radius:8px; cursor:pointer; font-weight: bold;">GUARDAR CONFIGURACIÓN</button>
+    </div>
+</div>
+    <nav>
+    <div class="logo">
+        <img src="logo clinica.png" alt="Logo Clínica Brossi">
+    </div>
+    <div class="nav-links">
+        <a href="#servicios">Especialidades</a>
+        <a href="cuadromedico.html">Cuadro médico</a>
+        <a href="#galeria">Instalaciones</a>
+        <a href="#sociedades">Sociedades</a>
+        <a href="#contacto">Contacto</a>
+        <a href="noticias.html">Noticias</a>
+        <a href="publicidad.html" class="nav-promo">Eventos</a>
+    </div>
+</nav>
+
+<section class="hero" id="inicio" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; text-align: center;">
+    
+    <div class="aviso-feedback" style="background: rgba(255, 255, 255, 0.1); padding: 15px 25px; border-radius: 50px; margin-bottom: 20px; border: 1px solid rgba(255, 255, 255, 0.3); backdrop-filter: blur(5px);">
+        <p style="margin: 0; color: #ffffff; font-size: 0.9rem;">
+            Nos importa tu opinión. Accede a nuestra
+            <a href="satisfaccion.html" style="color: #00d4ff; font-weight: bold; text-decoration: underline; margin-left: 5px;">encuesta de satisfacción</a> o 
+            <a href="quejas-sugerencias-felicitaciones.html" style="color: #00d4ff; font-weight: bold; text-decoration: underline; margin-left: 5px;">añade quejas/sugerencias</a>.
+        </p>
+    </div>
+
+    <h1>Cuidamos de ti</h1>
+
+<div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+    <a href="acceso.html" class="btn-cita">Portal del paciente</a>
+    <a href="accesopedircita.html" class="btn-cita" style="background-color: #0056b3; border: 1px solid #ffffff;">Pedir cita</a>
+</div>
+</section>
+
+<section class="features-inicio" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; align-items: stretch;">
+    
+    <div class="feature-item" style="padding: 20px; flex: 1; max-width: 350px; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e1e4e8; display: flex; flex-direction: column; justify-content: justify;">
+        <i class="fas fa-hospital-user" style="font-size: 2rem; color: #0067b1; margin-bottom: 15px; text-align: center;"></i>
+        <h4 style="margin: 0 0 10px 0; font-size: 1.1rem; text-align: center;">Atención al paciente</h4>
+        <p style="font-size: 0.9rem; line-height: 1.5; text-align: justify; margin-bottom: 15px;">
+            Cuidamos hasta el más mínimo detalle para que nuestros pacientes estén satisfechos. 
+            Puedes contactar con nosotros en el teléfono <strong>91 815 52 10</strong>, en el correo 
+            atencionalpaciente@clinicabrossi.com o rellenando nuestro:
+        </p>
+        <div style="text-align: center; margin-top: auto;">
+            <a href="formulariopaciente.html" style="display: inline-block; padding: 12px 20px; background-color: #0067b1; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">
+                Formulario de atención
+            </a>
+        </div>
+    </div>
+
+    <div class="feature-item" style="padding: 20px; flex: 1; max-width: 350px; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e1e4e8; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+        <a href="opiniones.html" style="text-decoration: none; color: inherit; display: block;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3588/3588207.png" alt="Calidad" style="width: 50px; height: 50px; margin-bottom: 10px;">
+            <h4 style="margin: 5px 0; font-size: 1.3rem; color: #0067b1;">100%</h4>
+            <span style="font-size: 1rem; font-weight: bold; display: block; margin-bottom: 10px;">Pacientes satisfechos</span>
+            <p style="font-size: 0.85rem; color: #5e646e; text-align: justify; margin: 0 10px;">
+                Opiniones de nuestros pacientes: nuestra excelencia médica y trato humano nos avalan como centro de referencia.
+            </p>
+        </a>
+    </div>
+
+</section>
+
+    <section class="sobre-nosotros" id="nosotros">
+    <div class="container">
+        <h2>¿Quiénes somos?</h2>
+        <article class="historia">
+            <p style="text-align: justify;">Somos un centro con una experiencia de más de 30 años en el cuidado de la salud. Contamos con una gran variedad de especialidades y tenemos un cuadro médico de profesionales con una gran formación y sólida trayectoria. También disponemos de tecnología avanzada en ecografías y radiografías.</p>
+        </article>
+        
+        <article class="filosofia">
+            <p style="text-align: justify;">Pero en nuestra clínica, <b>el centro es el paciente</b>. Priorizamos su atención y nuestro objetivo principal es su máximo bienestar. Nuestros pacientes reciben en todo momento un trato personalizado y cercano porque para nosotros <b>cada paciente es único</b>.</p>
+        </article>
+
+        <article class="innovacion">
+            <p style="text-align: justify;">Nuestro modelo de atención al paciente permite una atención más rápida y evita retrasos innecesarios. Nuestra última innovación tecnológica es que avisamos al paciente de forma automática en caso de que se quede disponible alguna cita, ya sea por anulación o por apertura de agenda. El paciente podrá elegir esta opción con un solo click.</p>
+        </article>
+        
+        <p style="text-align: justify;">También estamos comprometidos con el medio ambiente. Por eso, también cuidamos el planeta.</p>
+    </div>
+</section>
+
+   <section class="servicios" id="servicios">
+    <h2>Nuestras Especialidades</h2>
+    <div class="grid">
+        <div class="card"><i class="fas fa-user-md"></i><h3>Medicina General</h3><a href="medinina_general.html" class="btn-cita" style="padding: 8px 15px; font-size: 0.8rem;">Saber más</a></div>
+        <div class="card"><i class="fas fa-heartbeat"></i><h3>Cardiología</h3><a href="cardiologia.html" class="btn-cita" style="padding: 8px 15px; font-size: 0.8rem;">Saber más</a></div>
+        <div class="card"><i class="fas fa-baby"></i><h3>Pediatría</h3><a href="pediatria.html" class="btn-cita" style="padding: 8px 15px; font-size: 0.8rem;">Saber más</a></div>
+        <div class="card"><i class="fas fa-brain"></i><h3>Neurología</h3><a href="neurologia.html" class="btn-cita" style="padding: 8px 15px; font-size: 0.8rem;">Saber más</a></div>
+        <div class="card"><i class="fas fa-bone"></i><h3>Traumatología</h3><a href="traumatologia.html" class="btn-cita" style="padding: 8px 15px; font-size: 0.8rem;">Saber más</a></div>
+        <div class="card"><i class="fas fa-microscope"></i><h3>Diagnóstico por imagen</h3><a href="diagnostico_imagen.html" class="btn-cita" style="padding: 8px 15px; font-size: 0.8rem;">Saber más</a></div>
+        
+        <div class="card"><i class="fas fa-wave-square"></i><h3>Ecografías</h3><a href="ecografias.html" class="btn-cita" style="padding: 8px 15px; font-size: 0.8rem;">Saber más</a></div>
+        
+        <div class="card"><i class="fas fa-utensils"></i><h3>Aparato Digestivo</h3><a href="aparato_digestivo.html" class="btn-cita" style="padding: 8px 15px; font-size: 0.8rem;">Saber más</a></div>
+        <div class="card"><i class="fas fa-sun"></i><h3>Dermatología</h3><a href="dermatologia.html" class="btn-cita" style="padding: 8px 15px; font-size: 0.8rem;">Saber más</a></div>
+        <div class="card"><i class="fas fa-dna"></i><h3>Endocrinología</h3><a href="endocrinologia.html" class="btn-cita" style="padding: 8px 15px; font-size: 0.8rem;">Saber más</a></div>
+        <div class="card"><i class="fas fa-female"></i><h3>Ginecología</h3><a href="ginecologia.html" class="btn-cita" style="padding: 8px 15px; font-size: 0.8rem;">Saber más</a></div>
+        <div class="card"><i class="fas fa-lungs"></i><h3>Neumología</h3><a href="neumologia.html" class="btn-cita" style="padding: 8px 15px; font-size: 0.8rem;">Saber más</a></div>
+        <div class="card"><i class="fas fa-ear-listen"></i><h3>Otorrinolaringología</h3><a href="otorrinolaringologia.html" class="btn-cita" style="padding: 8px 15px; font-size: 0.8rem;">Saber más</a></div>
+        <div class="card"><i class="fas fa-shoe-prints"></i><h3>Podología</h3><a href="podologia.html" class="btn-cita" style="padding: 8px 15px; font-size: 0.8rem;">Saber más</a></div>
+    </div>
+</section>
+
+    <section id="galeria" style="padding: 80px 0;">
+        <h2 style="text-align: center; margin-bottom: 40px;">Nuestras Instalaciones</h2>
+        <div class="galeria-grid">
+            <div class="galeria-item">
+    <img src="https://www.shutterstock.com/image-photo/medical-center-260nw-2548752109.jpg" alt="Exterior de la clínica">
+    <h3>Exterior de la clínica</h3>
+</div>
+            <div class="galeria-item"><img src="https://niveldiezdental.es/wp-content/uploads/2022/07/2-Recepcion-1.jpg" alt="Recepción"><h3>Recepción</h3></div>
+            <div class="galeria-item"><img src="https://doihojqqs770p.cloudfront.net/articulos/articulos-69995.jpeg" alt="Consultas"><h3>Consultas</h3></div>
+        </div>
+    </section>
+
+   <section class="servicios" id="sociedades" style="background: white; padding: 80px 5%;">
+        <h2 style="text-align: center; color: var(--azul-oscuro); margin-bottom: 40px;">Sociedades médicas</h2>
+        <div class="grid">
+            
+            <div class="card" style="text-align: center;">
+                <img src="https://secondwindow.es/wp-content/uploads/2020/09/sanitas-logo.png" alt="Sanitas" style="height: 50px; margin-bottom: 20px;">
+                <h3>Sanitas</h3>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+            </div>
+
+            <div class="card" style="text-align: center;">
+                <img src="https://www.inese.es/wp-content/uploads/2026/01/af_mapfre_logotype_hor_rgb_red-bg.jpg" alt="Mapfre" style="height: 50px; margin-bottom: 20px;">
+                <h3>Mapfre</h3>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+            </div>
+
+            <div class="card" style="text-align: center;">
+                <img src="https://www.foniatriabielsa.com/wp-content/uploads/2019/07/adeslas-logo-nuevo.jpg" alt="Adeslas" style="height: 50px; margin-bottom: 20px;">
+                <h3>Adeslas</h3>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+            </div>
+
+            <div class="card" style="text-align: center;">
+                <img src="https://www.quiroderma.com/wp-content/uploads/2017/06/Logo-asisa-1.png" alt="Asisa" style="height: 50px; margin-bottom: 20px;">
+                <h3>Asisa</h3>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+            </div>
+
+            <div class="card" style="text-align: center;">
+                <img src="https://cirugiacardiacamadrid.com/wp-content/uploads/2020/07/dkv-seguros-logo-1.jpg" alt="DKV" style="height: 50px; margin-bottom: 20px;">
+                <h3>DKV</h3>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+            </div>
+
+            <div class="card" style="text-align: center;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/AXA_Logo.svg/500px-AXA_Logo.svg.png" alt="AXA" style="height: 50px; margin-bottom: 20px;">
+                <h3>AXA</h3>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+            </div>
+
+            <div class="card" style="text-align: center;">
+                <img src="https://www.caser.es/documents/473773/15931744/1656329959451_1613478332051_LOGO+CASER+NUEVO+modificado_mini.png/feff9f38-678e-2f8c-3d19-044114e24bb6?version=1.0&t=1749820450312&imagePreview=1" alt="Caser" style="height: 50px; margin-bottom: 20px;">
+                <h3>Caser</h3>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+            </div>
+
+            <div class="card" style="text-align: center;">
+                <img src="https://cdn.cookielaw.org/logos/33942db4-005c-450a-a0e5-a16f93ecaa7f/01933f12-6b0b-71b8-8f83-bb91a2a43591/dc561438-80b3-4754-aacd-28304b6ee2e4/cignahlthcr_logo_color_pos_sm_rgb.png" alt="Cigna" style="height: 50px; margin-bottom: 20px;">
+                <h3>Cigna</h3>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+            </div>
+
+        </div>
+    </section>
+
+    <section class="sostenibilidad" id="sostenibilidad" style="text-align: center; padding: 60px 5%; background-color: #f0fdf4;">
+    <h2 style="color: #166534;">Compromiso Eco-Brossi</h2>
+    <p style="text-align: justify; max-width: 800px; margin: 0 auto 30px auto; color: #374151;">
+        En la clínica Brossi estamos comprometidos con el medio ambiente. Por eso, también cuidamos el planeta.
+    </p>
+    
+    <h2 style="color: #166534;">¿Cómo lo hacemos?</h2>
+    
+    <div class="sostenibilidad-grid" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+
+        <div class="sos-card" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(22, 101, 52, 0.1); max-width: 450px; text-align: justify; border-top: 5px solid #22c55e;">
+            <img src="https://cdn-icons-png.flaticon.com/512/11926/11926677.png" alt="Consumo sostenible" class="icono" style="width: 60px; display: block; margin: 0 auto 15px auto;">
+            <h3 style="color: #166534; text-align: center;">Reducimos el consumo de:</h3>
+            <ul style="padding-left: 20px; color: #374151;">
+                <li style="margin-bottom: 10px;">
+                    <strong style="color: #15803d;">Energía:</strong> utilizando bombillas LED, sensores de luz y agua para los servicios y programando el aire acondicionado y la calefacción.
+                </li>
+                <li>
+                    <strong style="color: #15803d;">Papel:</strong> digitalizando documentos y evitando imprimir citas e informes (se mandan digitalmente con medidas de seguridad).
+                </li>
+            </ul>
+        </div>
+
+        <div class="sos-card" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(22, 101, 52, 0.1); max-width: 450px; text-align: justify; border-top: 5px solid #22c55e;">
+            <img src="https://cdn-icons-png.flaticon.com/512/8495/8495319.png" alt="Gestión de residuos" class="icono" style="width: 60px; display: block; margin: 0 auto 15px auto;">
+            <h3 style="color: #166534; text-align: center;">Gestionamos de forma responsable los residuos. Disponemos de:</h3>
+            <ul style="padding-left: 20px; color: #374151;">
+                <li style="margin-bottom: 10px;"><strong style="color: #15803d;">Contenedores</strong> amarillo, verde, azul y marrón <strong style="color: #15803d;">para reciclar</strong> plásticos, vidrio, papel y cartón y basura orgánica.</li>
+                <li style="margin-bottom: 10px;"><strong style="color: #15803d;">Punto SIGRE</strong> para los medicamentos caducados.</li>
+                <li><strong style="color: #15803d;">Contenedores</strong> homologados <strong style="color: #15803d;">para residuos biosanitarios</strong>.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+        
+      <section id="certificaciones" style="padding: 60px 5%; background-color: var(--azul-claro);">
+
+    <h2 style="text-align: center; color: var(--azul-oscuro); margin-bottom: 30px;">
+        Certificaciones ambientales
+    </h2>
+    
+    <div style="max-width: 900px; margin: 0 auto; background: var(--blanco); padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #28a745;">
+        
+        <div style="display: flex; align-items: flex-start; gap: 20px;">
+            
+            <i class="fas fa-leaf" style="font-size: 2rem; color: #28a745;"></i>
+            
+            <div>
+                <h3 style="margin: 0; color: var(--azul-oscuro); font-size: 1.3rem;">
+                    ISO 14001 - Sistemas de Gestión Ambiental (SGA)
+                </h3>
+
+                <p style="margin-top: 10px; color: var(--texto-secundario); line-height: 1.6; text-align: justify;">
+                    Se nos ha reconocido nuestro compromiso con la protección del medio ambiente gestionando los riesgos medioambientales asociados a nuestra actividad.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="faq" id="faq" style="padding: 80px 10%; background: #f9f9f9;">
+    <h2 style="text-align: center; color: var(--azul-oscuro); margin-bottom: 40px;">Preguntas frecuentes</h2>
+    
+    <div class="faq-container" style="max-width: 800px; margin: auto;">
+        
+        <details class="faq-item" style="margin-bottom: 15px; background: white; padding: 20px; border-radius: 8px; border-left: 5px solid var(--azul-brossi); cursor: pointer;">
+            <summary style="font-weight: bold; color: var(--azul-oscuro); outline: none;">¿Cómo puedo pedir cita?</summary>
+            <p style="margin: 15px 0 0 0; color: #5e646e; border-top: 1px solid #eee; padding-top: 15px; text-align: justify;">Puedes solicitar tu cita a través de nuestro panel de control privado o llamando directamente al número de teléfono indicado en la sección de contacto.</p>
+        </details>
+
+        <details class="faq-item" style="margin-bottom: 15px; background: white; padding: 20px; border-radius: 8px; border-left: 5px solid var(--azul-brossi); cursor: pointer;">
+            <summary style="font-weight: bold; color: var(--azul-oscuro); outline: none;">¿Con qué sociedades médicas trabajáis?</summary>
+            <p style="margin: 15px 0 0 0; color: #5e646e; border-top: 1px solid #eee; padding-top: 15px; text-align: justify;">Colaboramos con las principales aseguradoras, incluyendo Sanitas, Mapfre, Adeslas, Asisa, DKV, AXA, Caser y Cigna.</p>
+        </details>
+
+        <details class="faq-item" style="margin-bottom: 15px; background: white; padding: 20px; border-radius: 8px; border-left: 5px solid var(--azul-brossi); cursor: pointer;">
+            <summary style="font-weight: bold; color: var(--azul-oscuro); outline: none;">¿Qué tipos de consulta ofrecéis?</summary>
+            <p style="margin: 15px 0 0 0; color: #5e646e; border-top: 1px solid #eee; padding-top: 15px; text-align: justify;">Para tu comodidad, ofrecemos tres modalidades: consulta presencial en clínica, asistencia telefónica o videollamada para consultas que no requieran exploración física.</p>
+        </details>
+
+        <details class="faq-item" style="margin-bottom: 15px; background: white; padding: 20px; border-radius: 8px; border-left: 5px solid var(--azul-brossi); cursor: pointer;">
+            <summary style="font-weight: bold; color: var(--azul-oscuro); outline: none;">¿Es necesario traer documentación previa?</summary>
+            <p style="margin: 15px 0 0 0; color: #5e646e; border-top: 1px solid #eee; padding-top: 15px; text-align: justify;">Si tienes informes médicos antiguos, analíticas recientes o volantes de derivación, es recomendable traerlos o tenerlos disponibles digitalmente para nuestra valoración.</p>
+        </details>
+
+        <details class="faq-item" style="margin-bottom: 15px; background: white; padding: 20px; border-radius: 8px; border-left: 5px solid var(--azul-brossi); cursor: pointer;">
+            <summary style="font-weight: bold; color: var(--azul-oscuro); outline: none;">Si no tengo sociedad médica, ¿me podéis atender?</summary>
+            <p style="margin: 15px 0 0 0; color: #5e646e; border-top: 1px solid #eee; padding-top: 15px; text-align: justify;">Sí, claro. Llámenos para preguntarnos el precio de la consulta o prueba que necesita.</p>
+        </details>
+
+        <details class="faq-item" style="margin-bottom: 15px; background: white; padding: 20px; border-radius: 8px; border-left: 5px solid var(--azul-brossi); cursor: pointer;">
+            <summary style="font-weight: bold; color: var(--azul-oscuro); outline: none;">¿Se puede aparcar bien cerca de la clínica?</summary>
+            <p style="margin: 15px 0 0 0; color: #5e646e; border-top: 1px solid #eee; padding-top: 15px; text-align: justify;">Sí, disponemos de un aparcamiento propio de la clínica con suficientes plazas para todos nuestros pacientes.</p>
+        </details>
+
+    </div>
+</section>
+
+    <section class="contacto" id="contacto" style="padding: 80px 10%; background: #f4f7f9; color: #333;">
+    <h2 style="text-align: center; color: #1a4b8c; margin-bottom: 50px;">Localización, horario y contacto</h2>
+    
+    <div class="contacto-wrapper" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto;">
+        
+        <div class="contacto-info" style="display: flex; flex-direction: column; gap: 20px;">
+            <h3 style="color: #1a4b8c;">Información de contacto</h3>
+            <div class="info-item"><i class="fas fa-map-marker-alt" style="color: #1a4b8c; margin-right: 10px;"></i> C. de Pedro González, 2, 28660 Boadilla del Monte, Madrid</div>
+            
+            <a href="tel:+34918155210" style="color: #333; text-decoration: none;">
+                <div class="info-item">
+                    <i class="fas fa-phone-alt" style="color: #1a4b8c; margin-right: 10px;"></i> 
+                    +34 918 155 210
+                </div>
+            </a>
+            
+            <a href="https://wa.me/34600123456" target="_blank">
+                <div class="info-item">
+                    <i class="fab fa-whatsapp" style="color: #25d366; margin-right: 10px;"></i> 
+                +34 600 123 456
+                </div>
+            </a>
+
+            <div class="info-item">
+                <i class="fas fa-envelope" style="color: #1a4b8c; margin-right: 10px;"></i> 
+                <a href="mailto:info@clinicabrossi.com" >info@clinicabrossi.com</a>
+            </div>
+        </div>
+
+        <div class="contacto-derecha" style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="contacto-horario" style="background: white; padding: 25px; border-radius: 15px; border: 1px solid #e1e8ed;">
+                <h3 style="color: #1a4b8c; margin-top: 0;">Horario</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;"><span>Lunes - Viernes</span> <strong>08:00 - 21:00</strong></li>
+                    <li style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;"><span>Sábados</span>Cerrado</span></li>
+                    <li style="display: flex; justify-content: space-between; padding: 10px 0;"><span>Domingos</span>Cerrado</span></li>
+                </ul>
+            </div>
+            
+            <div class="accesibilidad" style="background: white; padding: 25px; border-radius: 15px; border: 1px solid #e1e8ed;">
+                <h3 style="color: #1a4b8c; margin-top: 0;">Accesibilidad y parking</h3>
+                <div class="info-item"><i class="fas fa-wheelchair" style="color: #1a4b8c; margin-right: 10px;"></i> Clínica adaptada</div>
+                <div class="info-item" style="margin-top: 10px;"><i class="fas fa-parking" style="color: #1a4b8c; margin-right: 10px;"></i> Parking privado en la propia clínica</div>
+            </div>
+        </div>
+
+        <div class="contacto-mapa" style="background: white; padding: 25px; border-radius: 15px; border: 1px solid #e1e8ed;">
+            <h3 style="color: #1a4b8c; margin-top: 0;">¿Cómo llegar?</h3>
+            <div style="border-radius: 10px; overflow: hidden; margin-top: 15px; border: 1px solid #eee;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.3879975765696!2d-3.882277624022068!3d40.40820115502325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4188b481684c7b%3A0x889814526d110196!2sC.%20de%20Pedro%20Gonz%C3%A1lez%2C%202%2C%2028660%20Boadilla%20del%20Monte%2C%20Madrid!5e0!3m2!1ses!2ses!4v1710580000000!5m2!1ses!2ses" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <a href="https://share.google/ksXKkQXdtBzIa9YsY" target="_blank" style="display: block; margin-top: 15px; color: #1a4b8c; text-align: center; font-weight: bold; text-decoration: underline;">
+                Abrir en Google Maps
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+
+    .contacto-horario:hover {
+        transform: translateY(-5px);
+    }
+    
+    @media (max-width: 768px) {
+        .contacto-wrapper { grid-template-columns: 1fr !important; }
+    }
+</style>
+
+<div id="chat-bubble" onclick="toggleChat()">
+    <i class="fas fa-comment-medical"></i>
+</div>
+
+<div id="chat-window" style="display: none;"> <div id="chat-header">
+        <span>Asistente Simón IA</span>
+        <button onclick="toggleChat()">×</button>
+    </div>
+    <div id="chat-messages">
+        <div class="msg bot">¡Hola! Soy Simón. ¿Tienes alguna duda sobre una prueba médica? (Ej: "ayuno ecografía")</div>
+    </div>
+    <div id="chat-input-area" style="display: flex; padding: 10px; border-top: 1px solid #eee;">
+        <input type="text" id="user-msg" placeholder="Pregunta aquí..." onkeypress="if(event.key==='Enter') sendMessage()" style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+        <button onclick="sendMessage()" style="background: var(--azul-oscuro); color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; margin-left: 5px;">➤</button>
+    </div>
+    <button id="btn-finalizar" onclick="finalizarChat()">
+        <i class="fas fa-times-circle"></i> Finalizar Chat
+    </button>
+</div>
+
+<script>
+
+    setTimeout(function() {
+        var banner = document.getElementById('banner-cookies');
+        if (banner) {
+            banner.style.display = 'block';
+        }
+    }, 2000);
+
+    function abrirConfiguracion() {
+        document.getElementById('panel-cookies').style.display = 'flex';
+    }
+
+    function cerrarTodo() {
+        document.getElementById('panel-cookies').style.display = 'none';
+        document.getElementById('banner-cookies').style.display = 'none';
+    }
+
+    function aceptarTodas() {
+        alert("Has aceptado todas las cookies.");
+        cerrarTodo();
+    }
+
+    function rechazarTodas() {
+        alert("Has rechazado las cookies.");
+        cerrarTodo();
+    }
+
+    function guardarPersonalizacion() {
+        alert("Configuración guardada.");
+        cerrarTodo();
+    }
+
+    function enviarFeedback() {
+        const form = document.getElementById('form-feedback');
+        const exito = document.getElementById('mensaje-exito');
+        
+        if(form && exito) {
+            form.style.display = 'none';
+            exito.style.display = 'flex';
+            setTimeout(() => { exito.style.opacity = '1'; }, 50);
+        }
+    }
+
+    function toggleHighContrast() { document.body.classList.toggle('high-contrast'); }
+    function toggleTextSize() { document.body.classList.toggle('large-text'); }
+    function resetAccessibility() { document.body.classList.remove('high-contrast', 'large-text', 'colorblind-mode'); }
+    function toggleColorBlind() { document.body.classList.toggle('colorblind-mode'); }
+
+
+function toggleChat() {
+    const chatWindow = document.getElementById('chat-window');
+    if (chatWindow.style.display === 'none' || chatWindow.style.display === '') {
+        chatWindow.style.display = 'flex';
+    } else {
+        chatWindow.style.display = 'none';
+    }
+}
+
+function sendMessage() {
+    const input = document.getElementById('user-msg');
+    const msgArea = document.getElementById('chat-messages');
+    const userText = input.value.trim();
+
+    if (userText === "") return;
+
+    msgArea.innerHTML += `<div class="msg user">${userText}</div>`;
+    input.value = "";
+    msgArea.scrollTop = msgArea.scrollHeight;
+
+    // 2. Respuesta de Simón
+    setTimeout(() => {
+        const text = userText.toLowerCase();
+        
+        
+        let response = "Para esa gestión específica, nuestro equipo puede ayudarte en el +34 918 155 210 o en el mostrador de la clínica.";
+
+        if (text.includes("hola") || text.includes("buenas") || text.includes("días")) {
+            response = "¡Hola! Soy Simón, tu asistente de Clínica Brossi. ¿En qué puedo ayudarte hoy?";
+        } 
+        
+        else if (text.includes("cuánto cuesta") || text.includes("precio") || text.includes("consulta privada")) {
+            response = "Póngase en contacto con nuestro personal de recepción.";
+        }
+        else if (text.includes("tardan") || (text.includes("resultados") && text.includes("ecografía"))) {
+            response = "Una semana.";
+        }
+        else if (text.includes("ayuno") || text.includes("ecografía") || text.includes("analítica") || text.includes("ayunas")) {
+            response = "Para ecografías abdominales y analíticas de sangre, se recomienda un ayuno total de 6 a 8 horas. Puedes beber un poco de agua.";
+        }
+        else if (text.includes("cita") || text.includes("pedir")) {
+            response = "Puedes gestionar tus citas desde el área 'acceso pacientes' o llamándonos directamente.";
+        }
+        else if (text.includes("gracias") || text.includes("adiós")) {
+            response = "¡De nada! Es un placer ayudarte. ¡Que tengas un gran día!";
+        }
+
+        msgArea.innerHTML += `<div class="msg bot">${response}</div>`;
+        msgArea.scrollTop = msgArea.scrollHeight;
+    }, 800);
+}
+
+function finalizarChat() {
+    if (confirm("¿Deseas finalizar la asistencia con Simón IA? Se borrará el historial del chat.")) {
+        const chatMessages = document.getElementById('chat-messages');
+        chatMessages.innerHTML = '<div class="msg bot">¡Hola! Soy Simón. ¿Tienes alguna duda sobre una prueba médica? (Ej: "ayuno ecografía")</div>';
+        toggleChat();
+    }
+}
+</script>
+
+    <footer style="padding: 40px 10% 20px 10%; background: #ffffff; border-top: 1px solid #e1e4e8; text-align: center;">
+    <div class="footer-legal-links" style="margin-bottom: 20px; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;">
+        <a href="privacidad.html" style="text-decoration: none; color: #5e646e; font-size: 0.85rem; font-weight: 600;">Política de privacidad</a>
+        <a href="cookies.html" style="text-decoration: none; color: #5e646e; font-size: 0.85rem; font-weight: 600;">Política de cookies</a>
+        <a href="legal.html" style="text-decoration: none; color: #5e646e; font-size: 0.85rem; font-weight: 600;">Aviso legal</a>
+    </div>
+    <p style="color: #2d3138; margin-bottom: 30px;">&copy; 2026 Clínica Brossi. Reservados todos los derechos de este contenido</p>
+
+    <div class="accesibilidad-footer" style="padding: 20px; background: #f0f4f8; border-radius: 12px; border: 1px solid #0067b1;">
+        <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px; font-weight: bold;">Opciones de accesibilidad:</p>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+            <button onclick="toggleHighContrast()" style="padding: 10px 15px; border-radius: 6px; border: 1px solid #0067b1; background: white; cursor: pointer;">Alto contraste</button>
+            <button onclick="toggleTextSize()" style="padding: 10px 15px; border-radius: 6px; border: 1px solid #0067b1; background: white; cursor: pointer;">Texto grande</button>
+            <button id="colorblind-btn" onclick="toggleColorBlind()" style="padding: 10px 15px; border-radius: 6px; border: 1px solid #0067b1; background: white; cursor: pointer;">Visión accesible</button>
+            <button onclick="resetAccessibility()" style="padding: 10px 15px; border-radius: 6px; border: 1px solid #999; background: #ddd; cursor: pointer;">Restaurar</button>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

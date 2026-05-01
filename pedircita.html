@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedir cita</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-brossi: #0067b1;
+            --azul-oscuro: #003057;
+            --gris-fondo: #f4f7f9;
+            --blanco: #ffffff;
+            --texto-principal: #2d3138;
+            --texto-secundario: #5e646e;
+            --borde: #e1e4e8;
+            --bg-input: #f8fafc;
+            --rojo-anular: #d32f2f;
+        }
+
+        body { font-family: 'Segoe UI', Roboto, Arial, sans-serif; margin: 0; background-color: var(--gris-fondo); color: var(--texto-principal); }
+
+        /*NAVEGACIÓN*/
+        nav { 
+            background-color: var(--blanco); 
+            padding: 5px 10%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid var(--borde); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+        }
+
+        .nav-logo img { 
+            height: 120px;
+            width: auto; 
+            cursor: pointer; 
+            transition: transform 0.3s; 
+        }
+
+        .nav-logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu { display: flex; gap: 20px; }
+        .nav-menu a { text-decoration: none; color: var(--azul-oscuro); font-weight: 600; cursor: pointer; }
+        .nav-right { display: flex; gap: 10px; align-items: center; }
+        .user-tag { background: var(--azul-brossi); color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; }
+        .btn-logout { background: #eee; color: var(--texto-principal); padding: 8px 12px; border-radius: 50%; cursor: pointer; border: 1px solid var(--borde); }
+
+
+        main { padding: 40px 10%; min-height: 75vh; }
+        .page { display: none; }
+        .page.active { display: block; animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid var(--borde); margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+        input, select { width: 100%; padding: 10px; border: 1px solid var(--borde); border-radius: 6px; background: var(--bg-input); font-size: 1rem; box-sizing: border-box; }
+
+
+        .btn { padding: 12px 20px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; justify-content: center; }
+        .btn-primary { background: var(--azul-brossi); color: white; width: 100%; }
+        .btn-confirm { background: #2e7d32; color: white; margin-top: 15px; width: 100%; }
+        .btn-danger { background: var(--rojo-anular); color: white; padding: 8px 12px; font-size: 0.85rem; }
+
+
+        #resultado-huecos { display: none; margin-top: 25px; padding-top: 20px; border-top: 2px dashed var(--borde); }
+        .grid-horas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 10px; }
+        .hora-item { padding: 10px; border: 1px solid var(--borde); text-align: center; border-radius: 5px; cursor: pointer; background: white; font-size: 0.9rem; }
+        .hora-item:hover, .hora-item.selected { background: var(--azul-brossi); color: white; }
+
+
+        .item-list { display: flex; justify-content: space-between; align-items: center; border-left: 5px solid var(--azul-brossi); padding: 15px; margin-bottom: 15px; background: white; border-radius: 0 8px 8px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        footer { padding: 20px 10%; text-align: center; color: var(--texto-secundario); border-top: 1px solid var(--borde); margin-top: 20px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-logo" onclick="showPage('inicio')"><img src="logo clinica.png" alt="Brossi"></div>
+    <div class="nav-menu">
+        <a onclick="showPage('inicio')">Inicio</a>
+        <a onclick="showPage('mis-citas')">Mis citas</a>
+        <a onclick="showPage('pedir-cita')">Pedir cita</a>
+    </div>
+    <div class="nav-right">
+        <div class="user-tag"><i class="fas fa-user-circle"></i></div>
+        <div class="btn-logout" onclick="cerrarSesion()"><i class="fas fa-power-off"></i></div>
+    </div>
+</nav>
+
+<main>
+    <section id="inicio" class="page active">
+        <h1>¡Bienvenido!</h1>
+        <div class="card">
+            <h3>Bienvenido al portal del paciente</h3>
+            <p>Desde aquí puedes gestionar tus citas de forma segura.</p>
+            <button class="btn btn-primary" onclick="showPage('pedir-cita')">
+                <i class="fas fa-calendar-plus"></i> Pedir nueva cita
+            </button>
+        </div>
+    </section>
+
+    <section id="pedir-cita" class="page">
+        <div class="card" style="max-width: 550px; margin: auto;">
+            <h2>Reservar cita</h2>
+
+<div class="form-group">
+    <label>Tipo de cita</label>
+    <select id="select-tipo" onchange="toggleIAOption()">
+        <option value="Presencial">Presencial</option>
+        <option value="Telefónica">Telefónica</option>
+        <option value="Videollamada">Videollamada</option>
+    </select>
+</div>
+
+<div id="container-ia" style="display: none; margin-top: 15px; margin-bottom: 15px; padding: 10px; background: #fff3e0; border: 1px solid #ffcc80; border-radius: 6px;">
+    <input type="checkbox" id="check-ia" style="width: auto;">
+    <label for="check-ia" style="display: inline; font-size: 0.9rem; cursor: pointer;">
+        Autorizo la transcripción de la conversación mediante IA.
+    </label>
+    <br><br>
+    <button onclick="gestionarCita()" style="padding: 10px 20px; cursor: pointer; background-color: #1a4b8c; color: white; border: none; border-radius: 5px;">
+        <i class="fas fa-file-alt"></i> Leer transcripción
+    </button>
+</div>
+
+<script>
+function toggleIAOption() {
+    const tipoCita = document.getElementById('select-tipo').value;
+    const containerIA = document.getElementById('container-ia');
+
+    if (tipoCita === 'Telefónica' || tipoCita === 'Videollamada') {
+        containerIA.style.display = "block";
+    } else {
+        containerIA.style.display = "none";
+
+        document.getElementById('check-ia').checked = false;
+    }
+}
+
+function gestionarCita() {
+    const checkbox = document.getElementById('check-ia');
+    
+    if (checkbox.checked) {
+
+        window.location.href = "ejemplo.html";
+    } else {
+        alert("Debe autorizar la transcripción para poder acceder al módulo de lectura de IA.");
+    }
+}
+</script>
+            <div class="form-group">
+                <label>Especialidad</label>
+                <select id="select-esp">
+                        <option value="">Seleccione...</option>
+                        <option value="Aparato Digestivo">Aparato Digestivo</option>
+                        <option value="Cardiología">Cardiología</option>
+                        <option value="Dermatología">Dermatología</option>
+                        <option value="Diagnóstico por Imagen">Diagnóstico por Imagen</option>
+                        <option value="Endocrinología">Endocrinología</option>
+                        <option value="Ginecología">Ginecología</option>
+                        <option value="Medicina General">Medicina General</option>
+                        <option value="Neumología">Neumología</option>
+                        <option value="Neurología">Neurología</option>
+                        <option value="Otorrinolaringología">Otorrinolaringología</option>
+                        <option value="Pediatría">Pediatría</option>
+                        <option value="Podología">Podología</option>
+                        <option value="Traumatología">Traumatología</option>
+                    </select>
+            </div>
+            <button class="btn btn-primary" onclick="buscarHuecos()">BUSCAR DISPONIBILIDAD</button>
+            <div id="resultado-huecos">
+                <div class="form-group">
+                    <label>Seleccione fecha</label>
+                    <input type="date" id="fecha-cita" min="2026-04-13">
+                </div>
+                <label>Seleccione hora</label>
+                <div class="grid-horas">
+                        <div class="hora-item" onclick="selectHora(this)">08:00</div>
+                        <div class="hora-item" onclick="selectHora(this)">08:30</div>
+                        <div class="hora-item" onclick="selectHora(this)">09:00</div>
+                        <div class="hora-item" onclick="selectHora(this)">09:30</div>
+                        <div class="hora-item" onclick="selectHora(this)">10:00</div>
+                        <div class="hora-item" onclick="selectHora(this)">10:30</div>
+                        <div class="hora-item" onclick="selectHora(this)">11:00</div>
+                        <div class="hora-item" onclick="selectHora(this)">11:30</div>
+                        <div class="hora-item" onclick="selectHora(this)">12:00</div>
+                        <div class="hora-item" onclick="selectHora(this)">12:30</div>
+                        <div class="hora-item" onclick="selectHora(this)">13:00</div>
+                        <div class="hora-item" onclick="selectHora(this)">13:30</div>
+                        <div class="hora-item" onclick="selectHora(this)">14:00</div>
+                        <div class="hora-item" onclick="selectHora(this)">14:30</div>
+                        <div class="hora-item" onclick="selectHora(this)">15:00</div>
+                        <div class="hora-item" onclick="selectHora(this)">15:30</div>
+                        <div class="hora-item" onclick="selectHora(this)">16:00</div>
+                        <div class="hora-item" onclick="selectHora(this)">16:30</div>
+                        <div class="hora-item" onclick="selectHora(this)">17:00</div>
+                        <div class="hora-item" onclick="selectHora(this)">17:30</div>
+                        <div class="hora-item" onclick="selectHora(this)">18:00</div>
+                        <div class="hora-item" onclick="selectHora(this)">18:30</div>
+                        <div class="hora-item" onclick="selectHora(this)">19:00</div>
+                        <div class="hora-item" onclick="selectHora(this)">19:30</div>
+                        <div class="hora-item" onclick="selectHora(this)">20:00</div>
+                        <div class="hora-item" onclick="selectHora(this)">20:30</div>
+                    </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label>Seleccionar médico</label>
+    <select id="select-medico">
+    <option value="" disabled selected>Seleccione un especialista</option>
+    <option value="sonia-martin">Dra. Sonia Martín Rodríguez (Medicina general)</option>
+    <option value="teresa-canton">Dra. Teresa Cantón Pérez (Cardiología)</option>
+    <option value="lucia-parro">Dra. Lucía Parro Estrada (Pediatría)</option>
+    <option value="roberto-zaldivar">Dr. Roberto Zaldivar Esteban (Neurología)</option>
+    <option value="javier-segura">Dr. Javier Segura Muñoz (Traumatología)</option>
+    <option value="laura-frutos">Dra. Laura Frutos Marzo (Diagnóstico por imagen)</option>
+    <option value="irene-martin">Dra. Irene Martín López (Ecografías)</option>
+    <option value="carlos-alvarez">Dr. Carlos Álvarez Reyes (Aparato digestivo)</option>
+    <option value="elena-parte">Dra. Elena De La Parte Muñoz (Dermatología)</option>
+    <option value="jorge-avellaneda">Dr. Jorge Avellaneda Ponz (Endocrinología)</option>
+    <option value="isabel-santos">Dra. Isabel Santos Medina (Ginecología)</option>
+    <option value="roberto-calvo">Dr. Roberto Calvo García (Neumología)</option>
+    <option value="julian-gonzalez">Dr. Julián González Rivera (Otorrinolaringología)</option>
+    <option value="maria-sanchez">Dra. María Sánchez Pérez (Podología)</option>
+</select>
+                <div style="margin-top: 15px; padding: 10px; background: #f0f7ff; border-radius: 5px; border: 1px solid var(--azul-brossi);">
+                        <input type="checkbox" id="check-cancelacion" style="width: auto;">
+                        <label for="check-cancelacion" style="display: inline; font-weight: normal; font-size: 0.9rem; cursor: pointer;">
+                            <strong>¡Adelanta tu cita!</strong> Avisarme si hay cancelaciones previas.
+                        </label>
+                    </div>
+
+                    <button class="btn btn-confirm" onclick="confirmarCita()">CONFIRMAR CITA AHORA</button>
+                </div>
+            </div>
+        </section>
+
+    <section id="mis-citas" class="page">
+        <h2>Gestionar mis citas</h2>
+        <div id="contenedor-citas">
+            <div class="item-list">
+                <div>
+                    <strong>Medicina General</strong><br>
+                    <small>15 de Abril 2026 - 10:00h | Dra. Sonia Martín (Presencial)</small>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn" style="background: var(--azul-brossi); color: white; padding: 8px 12px; font-size: 0.85rem;" onclick="modificarCita(this)">
+                        <i class="fas fa-edit"></i> Modificar
+                    </button>
+                    <button class="btn btn-danger" onclick="anularCita(this)">
+                        <i class="fas fa-trash"></i> Anular
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Clínica Brossi. Reservados todos los derechos de este contenido.</p>
+</footer>
+
+<script>
+let citaSiendoModificada = null;
+
+function iniciarModificacion(btn) {
+    citaSiendoModificada = btn.closest('.item-list');
+    
+    const info = citaSiendoModificada.querySelector('strong').innerText;
+    const detalles = citaSiendoModificada.querySelector('small').innerText;
+
+    document.getElementById('select-esp').value = info;
+    
+    if(detalles.includes("Presencial")) {
+        document.getElementById('select-tipo').value = "Presencial";
+    } else if(detalles.includes("Videollamada")) {
+        document.getElementById('select-tipo').value = "Videollamada";
+    } else if(detalles.includes("Telefónica")) {
+        document.getElementById('select-tipo').value = "Telefónica";
+    }
+
+    alert("Modificando cita de " + info + ". Por favor, selecciona la nueva fecha y hora.");
+    
+    showPage('pedir-cita');
+}
+
+
+function confirmarCita() {
+    const fecha = document.getElementById('fecha-cita').value;
+    const horaSel = document.querySelector('.hora-btn.active');
+    const medico = document.getElementById('select-medico').value;
+    const esp = document.getElementById('select-esp').value;
+    const tipo = document.getElementById('select-tipo').value;
+
+    if (!fecha || !horaSel || !medico) {
+        alert("Completa todos los campos.");
+        return;
+    }
+
+    if (citaSiendoModificada !== null) {
+        citaSiendoModificada.remove();
+        citaSiendoModificada = null;
+    }
+
+    const nuevaCita = document.createElement('div');
+    nuevaCita.className = 'item-list';
+    nuevaCita.innerHTML = `
+        <div>
+            <strong>${esp}</strong><br>
+            <small>${fecha} - ${horaSel.innerText}h | ${medico} (${tipo})</small>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <button class="btn" style="background: var(--azul-brossi); color: white; padding: 8px 12px; font-size: 0.85rem;" onclick="iniciarModificacion(this)">
+                <i class="fas fa-edit"></i> Modificar
+            </button>
+            <button class="btn btn-danger" onclick="anularCita(this)">
+                <i class="fas fa-trash"></i> Anular
+            </button>
+        </div>
+    `;
+    
+    document.getElementById('contenedor-citas').appendChild(nuevaCita);
+    alert("¡Cita actualizada correctamente!");
+    showPage('mis-citas');
+}
+
+function anularCita(btn) {
+    if (confirm("¿Deseas anular la cita?")) {
+        btn.closest('.item-list').remove();
+    }
+}
+
+    function showPage(id) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        if (id !== 'pedir-cita') {
+            document.getElementById('resultado-huecos').style.display = 'none';
+        }
+    }
+
+    function toggleIAOption() {
+        const tipo = document.getElementById('select-tipo').value;
+        const container = document.getElementById('container-ia');
+        container.style.display = (tipo === 'Telefónica' || tipo === 'Videollamada') ? 'block' : 'none';
+    }
+
+    function buscarHuecos() {
+        if (!document.getElementById('select-esp').value) {
+            alert("Selecciona una especialidad.");
+            return;
+        }
+        document.getElementById('resultado-huecos').style.display = 'block';
+    }
+
+    function selectHora(el) {
+        document.querySelectorAll('.hora-item').forEach(h => h.classList.remove('selected'));
+        el.classList.add('selected');
+    }
+
+    function modificarCita(btn) {
+        if (confirm("¿Deseas modificar esta cita? Serás redirigido al formulario de reserva.")) {
+            btn.closest('.item-list').remove();
+            showPage('pedir-cita');
+        }
+    }
+
+    function confirmarCita() {
+        const fecha = document.getElementById('fecha-cita').value;
+        const horaSel = document.querySelector('.hora-item.selected');
+        const medico = document.getElementById('select-medico').value;
+        const esp = document.getElementById('select-esp').value;
+        const tipo = document.getElementById('select-tipo').value;
+
+        if (!fecha || !horaSel || !medico) {
+            alert("Completa todos los campos.");
+            return;
+        }
+
+        const nuevaCita = document.createElement('div');
+        nuevaCita.className = 'item-list';
+        nuevaCita.innerHTML = `
+            <div>
+                <strong>${esp}</strong><br>
+                <small>${fecha} - ${horaSel.innerText}h | ${medico} (${tipo})</small>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn" style="background: var(--azul-brossi); color: white; padding: 8px 12px; font-size: 0.85rem;" onclick="modificarCita(this)">
+                    <i class="fas fa-edit"></i> Modificar
+                </button>
+                <button class="btn btn-danger" onclick="anularCita(this)">
+                    <i class="fas fa-trash"></i> Anular
+                </button>
+            </div>
+        `;
+        document.getElementById('contenedor-citas').appendChild(nuevaCita);
+        alert("¡Cita confirmada!");
+        showPage('mis-citas');
+    }
+
+    function anularCita(btn) {
+        if (confirm("¿Deseas anular la cita?")) {
+            btn.closest('.item-list').remove();
+        }
+    }
+
+    function cerrarSesion() {
+        if (confirm("¿Deseas salir?")) {
+            window.location.reload();
+        }
+    }
+</script>
+</body>
+</html>

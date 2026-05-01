@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcripción IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f9;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container-ia {
+            background: white;
+            width: 90%;
+            max-width: 900px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 8px solid #1a4b8c;
+        }
+
+        .header-ia {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-ia h1 {
+            color: #1a4b8c;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .badge-ia {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .seccion-transcripcion {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 20px;
+        }
+
+        .caja-audio {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px dashed #cbd5e1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .caja-texto {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .titulo-caja {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #64748b;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .texto-generado {
+            flex-grow: 1;
+            color: #1e293b;
+            line-height: 1.6;
+            font-style: italic;
+            white-space: pre-wrap;
+            border-bottom: 1px solid #f1f5f9;
+            margin-bottom: 15px;
+        }
+
+        .botones-accion {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .btn-mic { background: #1a4b8c; color: white; width: 100%; }
+        .btn-mic.active { background: #d32f2f; animation: pulse 1.5s infinite; }
+        .btn-pdf { background: #10b981; color: white; flex: 1; }
+        .btn-voz { background: #f59e0b; color: white; flex: 1; }
+
+        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(211, 47, 47, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
+        }
+
+        .wave-bar {
+            width: 4px; background: #1a4b8c; display: none;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.5); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-ia">
+    <div class="header-ia">
+        <h1>Asistente clínico inteligente</h1>
+        <p>Dictado, lectura de voz y exportación a PDF para la Clínica Brossi.</p>
+    </div>
+
+    <div class="seccion-transcripcion">
+        <div class="caja-audio">
+            <div class="titulo-caja"><i class="fas fa-microphone"></i> Grabación de Informe</div>
+            <p id="instrucciones" style="font-size: 0.8rem; color: #64748b;">Haga clic para iniciar el dictado.</p>
+            
+            <div id="visualizer" style="display: flex; align-items: center; gap: 5px; height: 30px; margin: 10px 0;">
+                <div class="wave-bar" style="height: 15px; animation: wave 1s infinite 0.1s;"></div>
+                <div class="wave-bar" style="height: 25px; animation: wave 1s infinite 0.2s;"></div>
+                <div class="wave-bar" style="height: 20px; animation: wave 1s infinite 0.3s;"></div>
+                <div class="wave-bar" style="height: 30px; animation: wave 1s infinite 0.4s;"></div>
+            </div>
+
+            <button id="start-btn" class="btn btn-mic">
+                <i class="fas fa-microphone"></i> <span>Iniciar Dictado</span>
+            </button>
+        </div>
+
+        <div class="caja-texto">
+            <div class="titulo-caja"><i class="fas fa-file-medical"></i> Informe Médico Generado</div>
+            <div id="output" class="texto-generado">El texto aparecerá aquí...</div>
+            
+            <div class="botones-accion">
+                <button onclick="leerInforme()" class="btn btn-voz">
+                    <i class="fas fa-volume-up"></i> Leer Informe
+                </button>
+                <button onclick="generarPDF()" class="btn btn-pdf">
+                    <i class="fas fa-file-pdf"></i> Guardar PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-ia" style="margin-top: 20px; text-align: center; font-size: 0.8rem; color: #94a3b8;">
+        &copy; 2026 Clínica Brossi - Sistema de gestión médica autorizado
+    </div>
+</div>
+
+<script>
+    const startBtn = document.getElementById('start-btn');
+    const output = document.getElementById('output');
+    const instrucciones = document.getElementById('instrucciones');
+    const bars = document.querySelectorAll('.wave-bar');
+
+    // RECONOCIMIENTO DE VOZ (DICTADO)
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let recognition;
+
+    if (SpeechRecognition) {
+        recognition = new SpeechRecognition();
+        recognition.lang = 'es-ES';
+        recognition.interimResults = true;
+        recognition.continuous = true;
+
+        let isRecognizing = false;
+
+        startBtn.addEventListener('click', () => {
+            if (!isRecognizing) recognition.start();
+            else recognition.stop();
+        });
+
+        recognition.onstart = () => {
+            isRecognizing = true;
+            startBtn.classList.add('active');
+            startBtn.querySelector('span').innerText = "Parar";
+            output.innerText = "";
+            bars.forEach(bar => bar.style.display = 'block');
+        };
+
+        recognition.onresult = (event) => {
+            let final = '';
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                final += event.results[i][0].transcript;
+            }
+            output.innerText = final;
+        };
+
+        recognition.onend = () => {
+            isRecognizing = false;
+            startBtn.classList.remove('active');
+            startBtn.querySelector('span').innerText = "Iniciar Dictado";
+            bars.forEach(bar => bar.style.display = 'none');
+        };
+    }
+
+    // VOZ DE GOOGLE (LECTURA)
+    function leerInforme() {
+        const texto = output.innerText;
+        if (texto === "El texto aparecerá aquí..." || texto === "") return;
+
+        const utterance = new SpeechSynthesisUtterance(texto);
+        utterance.lang = 'es-ES';
+        utterance.rate = 1.0; 
+        utterance.pitch = 1.0; 
+        
+        window.speechSynthesis.speak(utterance);
+    }
+
+    // GENERACIÓN DE PDF
+    function generarPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        const texto = output.innerText;
+
+        if (texto === "El texto aparecerá aquí..." || texto === "") {
+            alert("No hay contenido para generar el informe.");
+            return;
+        }
+
+        // Diseño del PDF
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(26, 75, 140);
+        doc.text("CLÍNICA BROSSI - INFORME MÉDICO", 20, 20);
+        
+        doc.setFontSize(10);
+        doc.setTextColor(100, 100, 100);
+        doc.text("Fecha: " + new Date().toLocaleDateString(), 20, 30);
+        doc.line(20, 35, 190, 35);
+
+        doc.setFont("helvetica", "italic");
+        doc.setFontSize(12);
+        doc.setTextColor(30, 30, 30);
+        
+
+        const splitText = doc.splitTextToSize(texto, 170);
+        doc.text(splitText, 20, 50);
+
+        doc.save("Informe_medico.pdf");
+    }
+</script>
+
+</body>
+</html>

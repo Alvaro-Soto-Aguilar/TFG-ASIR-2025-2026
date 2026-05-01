@@ -1,0 +1,288 @@
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso pedir cita - Clínica Brossi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-sanitas: #0067b1;
+            --azul-boton: #0070c4;
+            --texto-oscuro: #2d3138;
+            --texto-suave: #5e646e;
+            --borde-input: #ccc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            margin: 0;
+            background-color: white;
+            color: var(--texto-oscuro);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+
+        header {
+            padding: 30px 10%;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .logo img {
+            height: 120px;
+            width: auto;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 100px;
+            padding: 20px 10% 60px 10%;
+            flex: 1;
+        }
+
+        .info-section {
+            flex: 1;
+            max-width: 550px;
+        }
+
+        .info-section h1 {
+            font-size: 38px;
+            color: #003057;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .info-section h2 {
+            font-size: 24px;
+            color: var(--texto-suave);
+            margin-bottom: 35px;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-section li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+            color: var(--texto-suave);
+            font-size: 17px;
+        }
+
+        .info-section li::before {
+            content: "•";
+            color: var(--azul-sanitas);
+            font-size: 30px;
+            position: absolute;
+            left: 0;
+            top: -8px;
+        }
+
+
+        .login-card {
+            background: white;
+            padding: 45px;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .login-card h3 {
+            font-size: 32px;
+            margin-top: 0;
+            margin-bottom: 35px;
+            font-weight: 600;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--texto-suave);
+            font-size: 18px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 18px 15px 18px 50px;
+            border: 1px solid var(--borde-input);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            margin-bottom: 35px;
+        }
+
+        .login-options a {
+            color: var(--azul-sanitas);
+            text-decoration: none;
+        }
+
+        .btn-acceder {
+            width: 100%;
+            background: var(--azul-boton);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 4px;
+            font-size: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-acceder:hover {
+            background: #005a9e;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 15px;
+        }
+
+        .register-link a {
+            color: var(--azul-sanitas);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: #fcfcfc;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            color: var(--texto-suave);
+        }
+
+        .app-badges {
+            margin: 15px 0;
+        }
+
+        .app-badges img {
+            height: 40px;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo clinica.png" alt="Logo Clínica Brossi">
+        </div>
+    </header>
+
+    <main>
+        <section class="info-section">
+            <h1>Bienvenido a Clinica Brossi</h1>
+    <h2>Con este portal de pedir cita podrás:</h2>
+    <ul style="list-style-type: none; padding: 0;">
+        <li style="margin-bottom: 10px;">
+            <i class="fas fa-check" style="color: #0067b1; margin-right: 10px;"></i> Pedir de forma rápida citas.
+        </li>
+        <li style="margin-bottom: 10px;">
+            <i class="fas fa-check" style="color: #0067b1; margin-right: 10px;"></i> Consultar citas.
+        </li>
+        <li style="margin-bottom: 10px;">
+            <i class="fas fa-check" style="color: #0067b1; margin-right: 10px;"></i> Citas presenciales, telefónicas o por videollamada.
+        </li>
+    </ul>
+</section>
+
+        <section class="login-card">
+            <h3>¡Hola!</h3>
+            <form id="loginForm">
+                <div class="input-group">
+                    <i class="far fa-user"></i>
+                    <input type="text" id="userInput" placeholder="DNI" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="passInput" placeholder="Contraseña" required>
+                </div>
+
+                <div class="login-options">
+                    <label><input type="checkbox" center> Recuérdame</label>
+                </div>
+
+                <button type="submit" class="btn-acceder">Acceder</button>
+
+                <div class="register-link">
+                    ¿Aún no tienes usuario? <a href="registro.html">Regístrate</a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+    <p>&copy; 2026 Clínica Brossi. Reservados todos los derechos de este contenido.</p>
+</footer>
+
+    <script>
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const dniMaestro = "48206408A"; 
+    const passMaestra = "Navidad25@@@";
+    const userRegistrado = localStorage.getItem('user_registrado');
+    const passRegistrada = localStorage.getItem('pass_registrada');
+    const userVal = document.getElementById('userInput').value.trim();
+    const passVal = document.getElementById('passInput').value.trim();
+    const loginMaestroOk = (userVal === dniMaestro && passVal === passMaestra);
+    const loginRegistroOk = (userRegistrado && userVal === userRegistrado && passVal === passRegistrada);
+
+    if (loginMaestroOk || loginRegistroOk) {
+        window.location.href = "pedircita.html"; 
+    } else {
+        alert("DNI");
+    }
+});
+</script>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const userRegistrado = localStorage.getItem('user_registrado');
+    const passRegistrada = localStorage.getItem('pass_registrada');
+    const userVal = document.getElementById('userInput').value.trim();
+    const passVal = document.getElementById('passInput').value.trim();
+    const dniMaestro = "48206408A"; 
+    const passMaestra = "Navidad25@@@";
+    const esRegistroValido = (userRegistrado && userVal === userRegistrado && passVal === passRegistrada);
+    const esMaestroValido = (userVal === dniMaestro && passVal === passMaestra);
+
+    if (esRegistroValido || esMaestroValido) {
+        window.location.href = "pedircita.html"; 
+    } else {
+        alert("DNI.");
+    }
+});
+</script>
+
+</body>
+</html>>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opiniones</title>
+    <style>
+        :root {
+            --azul-brossi: #0067b1;
+            --azul-oscuro: #003057;
+            --fondo: #f4f7f9;
+        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--fondo); color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: auto; }
+        header { text-align: center; margin-bottom: 30px; }
+        
+
+        .satisfaccion-box { 
+            background: #eef7ff; padding: 25px; border-radius: 12px; 
+            text-align: center; margin-bottom: 30px; 
+            border: 2px dashed var(--azul-brossi);
+        }
+        .satisfaccion-box h3 { color: var(--azul-oscuro); margin: 5px 0; }
+        .satisfaccion-box p { 
+            color: #5e646e; 
+            font-weight: 500; 
+            text-align: justify; 
+            margin: 15px 0;
+        }
+
+
+        .review-card { 
+            background: white; padding: 25px; margin-bottom: 20px; 
+            border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--azul-brossi);
+        }
+        .review-card p {
+            text-align: justify;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        .stars { color: #f39c12; margin-bottom: 10px; font-size: 1.2rem; }
+        .author { font-weight: bold; color: var(--azul-oscuro); margin-top: 10px; display: block; text-align: right; }
+        
+        .btn-volver { 
+            display: inline-block; padding: 12px 25px; background: var(--azul-brossi); 
+            color: white; text-decoration: none; border-radius: 8px; margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .btn-volver:hover {
+            background: var(--azul-oscuro);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Opiniones de nuestros pacientes</h1>
+    </header>
+
+    <div class="satisfaccion-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/3588/3588207.png" alt="Calidad Excelente" style="width: 80px; height: 80px; margin-bottom: 10px;">
+        
+        <h3>100% de satisfacción</h3>
+        <p>Nuestras encuestas de satisfacción demuestran que en el año 2025 el 100% de los pacientes ha quedado satisfecho con nuestros servicios. Este resultado refleja nuestro compromiso inquebrantable con la excelencia médica y el bienestar de cada persona que confía en nosotros.</p>
+        
+        <div style="margin-top: 15px;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXnBtZJBoYwu8hqEHEOhph2RGbw9x5aAD7dQ&s" 
+                 alt="Verde de Calidad" 
+                 style="height: 80px; width: auto; display: block; margin: 0 auto;">
+        </div>
+    </div>
+
+    <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Estoy muy contenta por la atención recibida por todo el personal de la clínica. Desde que entras por la puerta te sientes cuidada y en las mejores manos posibles.</p>
+        <span class="author">— María Rubio Estredo</span>
+    </div>
+
+    <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Vuestro horario me permite acudir al médico sin tener que pedir permiso en el trabajo. Es una facilidad enorme contar con una clínica que entiende el ritmo de vida actual.</p>
+        <span class="author">— Anas Andaloussi</span>
+    </div>
+
+    <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>El trato recibido por el doctor Carlos Álvarez Reyes ha sido excelente. Su profesionalidad y cercanía me dieron mucha tranquilidad durante todo el proceso de mi tratamiento.</p>
+        <span class="author">— P. González</span>
+    </div>
+
+    <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>La navegación por la página web es muy sencilla e intuitiva. Es de agradecer que el portal del paciente sea tan claro para gestionar mis citas y ver mis informes médicos.</p>
+        <span class="author">— M. Estrada</span>
+    </div>
+
+    <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Gracias a la transcripción en texto de la consulta telefónica con el doctor Roberto Calvo García lo he podido tener todo claro. No se pierde ningún detalle de las indicaciones médicas.</p>
+        <span class="author">— J. Martínez</span>
+    </div>
+
+    <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Gracias al aviso de disponibilidad de citas, no tengo que estar pendiente de cuándo se abre la agenda. ¡Enhorabuena por esta gran innovación tecnológica y humana!</p>
+        <span class="author">— Carmen L.</span>
+    </div>
+
+    <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Las instalaciones muy limpias, los baños impecables y siempre con buen olor. Se nota que cuidan la higiene y el orden en cada rincón de la clínica para comodidad de todos.</p>
+        <span class="author">— Ricardo T.</span>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; margin-bottom: 50px;">
+        <a href="index.html" class="btn-volver">← Volver al inicio</a>
+    </div>
+</div>
+
+</body>
+</html>

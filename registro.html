@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <style>
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: #f4f7f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .register-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h2 { color: #003057; text-align: center; margin-bottom: 25px; }
+        .input-group { margin-bottom: 15px; }
+        label { display: block; font-size: 0.85rem; color: #5e646e; margin-bottom: 5px; }
+        input { width: 100%; padding: 12px; border: 1px solid #e1e4e8; border-radius: 8px; box-sizing: border-box; }
+        .btn-registro { width: 100%; background: #0067b1; color: white; padding: 15px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s; }
+        .btn-registro:hover { background: #00508d; }
+    </style>
+</head>
+<body>
+<div class="register-card">
+    <h2>Crear cuenta</h2>
+    <form id="registroForm">
+        <div class="input-group">
+            <label>Nombre de usuario</label>
+            <input type="text" id="reg-usuario" required>
+        </div>
+        <div class="input-group">
+            <label>DNI / NIE / pasaporte</label>
+            <input type="text" id="reg-dni" required placeholder="Ej: 12345678A">
+        </div>
+        <div class="input-group">
+            <label>Fecha de nacimiento</label>
+            <input type="date" id="reg-fecha" required>
+        </div>
+        <div class="input-group">
+            <label>Correo electrónico</label>
+            <input type="email" id="reg-email" required>
+        </div>
+        <div class="input-group">
+            <label>Contraseña</label>
+            <input type="password" id="reg-pass">
+        </div>
+        <button type="submit" class="btn-registro">Completar registro</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('registroForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+
+        const dniInput = document.getElementById('reg-dni').value.trim();
+        const passInput = document.getElementById('reg-pass').value.trim();
+        
+
+        localStorage.setItem('user_registrado', dniInput);
+        localStorage.setItem('pass_registrada', passInput);
+
+        alert("Registro completado. Ahora puede acceder con los datos que acaba de introducir.");
+        
+        // Redirigo al acceso.html
+        window.location.href = "acceso.html";
+    });
+</script>
+</body>
+</html>

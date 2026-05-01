@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f7f9; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .container { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; max-width: 500px; width: 100%; }
+        .logo { width: 180px; margin-bottom: 20px; }
+        h1 { font-size: 1.6rem; color: #1a4b8c; margin-bottom: 10px; }
+
+        .event-info { margin: 20px 0; text-align: left; background: #f9f9f9; padding: 20px; border-radius: 12px; }
+        .info-row { display: flex; align-items: center; margin-bottom: 8px; font-size: 0.95rem; }
+        .info-row strong { margin-left: 10px; min-width: 80px; }
+
+    
+        .details-section { margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd; text-align: justify; }
+        .details-section h3 { font-size: 0.95rem; color: #1a4b8c; margin: 0 0 5px 0; text-align: center; }
+        .details-section p { font-size: 0.85rem; color: #555; line-height: 1.5; margin: 0; }
+
+        #countdown { display: flex; justify-content: center; gap: 10px; margin: 25px 0; }
+        .time-box { background: #1a4b8c; color: white; padding: 10px; border-radius: 10px; min-width: 50px; }
+        .time-box span { display: block; font-size: 1.2rem; font-weight: bold; }
+        .time-box label { font-size: 0.6rem; text-transform: uppercase; }
+
+        #form-reserva { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+        input { padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
+        .btn-enviar { background: #1a4b8c; color: white; padding: 15px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+        
+        #mensaje-exito { display: none; margin-top: 20px; padding: 20px; background: #d4edda; color: #155724; border-radius: 8px; font-weight: bold; font-size: 1.1rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="logo clinica.png" alt="Clínica Brossi" class="logo">
+    <h1>Evento de salud preventiva</h1>
+    
+    <div class="event-info">
+        <div class="info-row"><span>📅</span> <strong>Día:</strong> 14 de Junio de 2026</div>
+        <div class="info-row"><span>⏰</span> <strong>Hora:</strong> 18:30h</div>
+        <div class="info-row"><span>🌐</span> <strong>Lugar:</strong> Online (Sin problemas de aforo)</div>
+        
+        <div class="details-section">
+            <h3>Más detalles del evento</h3>
+            <p><strong>Sobre qué es:</strong> Una charla con recomendaciones para prevenir enfermedades y la explicación de los chequeos que hacemos en la clínica Brossi. El formato online permite que se pueda conectar mucha gente de manera cómoda desde cualquier lugar.</p>
+        </div>
+    </div>
+    
+    <div id="countdown">
+        <div class="time-box"><span id="days">0</span><label>Días</label></div>
+        <div class="time-box"><span id="hours">0</span><label>Horas</label></div>
+        <div class="time-box"><span id="minutes">0</span><label>Minutos</label></div>
+        <div class="time-box"><span id="seconds">0</span><label>Segundos</label></div>
+    </div>
+
+    <form id="form-reserva" onsubmit="event.preventDefault(); confirmar();">
+        <input type="text" placeholder="Tu nombre completo" required>
+        <input type="email" placeholder="Tu correo electrónico" required>
+        <button type="submit" class="btn-enviar">RESERVAR MI PLAZA</button>
+    </form>
+    
+    <div id="mensaje-exito">¡Se ha enviado correctamente! Te llegará a tu correo electrónico la convocatoria o el enlace para conectarte.</div>
+</div>
+
+<script>
+    const targetDate = new Date("June 14, 2026 18:30:00").getTime();
+    function updateTimer() {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+        if (diff > 0) {
+            document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+        }
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    function confirmar() {
+        document.getElementById('form-reserva').style.display = 'none';
+        document.getElementById('mensaje-exito').style.display = 'block';
+    }
+</script>
+</body>
+</html>

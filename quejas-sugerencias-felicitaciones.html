@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sugerencias y quejas</title>
+</head>
+<body style="margin: 0; font-family: sans-serif; background-color: #f4f7f6;">
+
+    <section class="feedback" id="feedback" style="padding: 60px 10%; background: #ffffff; min-height: 100vh;">
+        
+        <div style="text-align: center; margin-bottom: 30px;">
+            <img src="logo clinica.png" alt="Logo Clínica Brossi" style="max-width: 200px;">
+        </div>
+
+        <h2 style="text-align: center; color: #003366; margin-bottom: 40px;">Quejas, sugerencias y felicitaciones</h2>
+        
+        <div class="feedback-container" style="max-width: 600px; margin: auto; background: #f9f9f9; padding: 30px; border-radius: 12px; border: 1px solid #e0e0e0; position: relative; min-height: 300px;">
+            
+            <form id="form-feedback" onsubmit="event.preventDefault(); enviarFeedback();" style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #003366;">Tipo de mensaje</label>
+                    <select id="tipo-msg" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                        <option value="queja">Queja</option>
+                        <option value="sugerencia">Sugerencia</option>
+                        <option value="felicitacion">Felicitación</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #003366;">Tu mensaje</label>
+                    <textarea id="texto-msg" rows="5" placeholder="Cuéntanos tu experiencia..." style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+                </div>
+                
+                <button type="submit" style="padding: 12px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem;">Enviar Mensaje</button>
+            </form>
+
+            <div id="mensaje-exito" style="display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #f9f9f9; align-items: center; justify-content: center; opacity: 0; transition: opacity 1s ease; border-radius: 12px;">
+                <h3 style="color: #28a745; text-align: center;">¡Se ha enviado correctamente!</h3>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function enviarFeedback() {
+            const mensaje = document.getElementById('mensaje-exito');
+            mensaje.style.display = 'flex';
+            setTimeout(() => { mensaje.style.opacity = '1'; }, 50);
+        }
+    </script>
+</body>
+</html>
