@@ -5,7 +5,7 @@
 
 Este repositorio contiene el **Proyecto Fin de Carrera (PFC)** para el ciclo de *Administración de Sistemas Informáticos en Red (ASIR)*. 
 
-El proyecto consiste en el diseño, desarrollo y despliegue de la infraestructura web para una clínica dental moderna, integrando soluciones de accesibilidad y gestión digital.
+El proyecto consiste en poner el resumen del proyecto.
 
 ---
 
