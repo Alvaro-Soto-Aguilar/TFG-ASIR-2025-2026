@@ -35,7 +35,22 @@ En el sitio web se han implementado una serie de mejoras con respecto a otras p�
 Para la realización de este proyecto  se ha utilizado una metodología incremental que consiste en hacer el proyecto por partes, diviéndolo en pequeños módulos más pequeños de manera que cada una de estas partes incorporan funciones adicionales sobre la parte anterior, permitiendo revisar los avances, modificar los posibles errores y entregar los resultados de forma progresiva.
 </p>
 
-## 💻 Tecnologías utilizadas
+## 💻 Tecnología utilizada
+<p align="justify">
+  Cisco Packet Tracer.
+  Draw.io
+  Eraser.io
+  SupaBase
+  HTML
+  CSS
+  PHP
+  JS (JavaScript)
+  LUCIDCHART
+  SoftEther VPN Client Manager
+  Microsoft Excel
+  AeonFree
+  MailEnableAdmin
+  </p>
 ---
 
 ## 👨‍💻 Autor
