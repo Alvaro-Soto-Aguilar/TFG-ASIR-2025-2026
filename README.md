@@ -38,24 +38,42 @@ Para la realización de este proyecto  se ha utilizado una metodología incremen
 ## 💻 Tecnología utilizada
 
 <div align="justify">
-Para la elaboración de este proyecto, he utilizado la siguiente tecnología:
+
+  
+  
+  Para la elaboración de este proyecto, he utilizado la siguiente tecnología:
 
 
-*   **Cisco Packet Tracer:**
-*   **Draw.io:**
-*   **Eraser.io:**
-*   **Supabase:**
-*   **HTML:**
-*   **CSS:**
-*   **PHP:**
-*   **JS (JavaScript):**
-*   **LucidChart:**
-*   **SoftEther VPN Client Manager:**
-*   **Microsoft Excel:**
-*   **AeonFree:**
-*   **MailEnable Admin:**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*   Cisco Packet Tracer
+*   Draw.io
+*   Eraser.io
+*   Supabase
+*   HTML
+*   CSS
+*   PHP
+*   JS (JavaScript)
+*   LucidChart
+*   SoftEther VPN Client Manager
+*   Microsoft Excel
+*   AeonFree
+*   MailEnable Admin
 
 </div>
+
 ---
 
 ## 👨‍💻 Autor
