@@ -4,7 +4,7 @@
 ![Especialidad](https://img.shields.io/badge/PFC-ASIR-orange)
 
 <p align="justify">
-  Este repositorio contiene el Proyecto Fin de Carrera (PFC) para el ciclo de Administración de Sistemas Informáticos en Red (ASIR).
+  Tenéis que ir al index.html para ver toda la página web o entrando a https://clinicabrossi.iceiy.com/, podéis ver la página web. Este repositorio contiene el Proyecto Fin de Carrera (PFC) para el ciclo de Administración de Sistemas Informáticos en Red (ASIR).
 </p>
 
 ---
