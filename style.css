@@ -1,4 +1,3 @@
-/*Estilos*/
 :root {
     --azul-brossi: #005596;
     --azul-claro: #eef6fc;
@@ -14,7 +13,6 @@ body {
     background-color: var(--azul-claro);
 }
 
-/* Header y navegación */
 header {
     background: var(--blanco);
     padding: 1rem 5%;
