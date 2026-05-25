@@ -1,10 +1,10 @@
 # 🏥 Clínica Brossi
 
 ![Curso](https://img.shields.io/badge/Curso-2025--2026-green)
-![Especialidad](https://img.shields.io/badge/PFC-ASIR-orange)
+![Especialidad](https://img.shields.io/badge/TFE-ASIR-orange)
 
 <p align="justify">
-  Tenéis que ir al index.html para ver toda la página web o entrando a https://clinicabrossi.iceiy.com/, podéis ver la página web. Este repositorio contiene el Proyecto Fin de Carrera (PFC) para el ciclo de Administración de Sistemas Informáticos en Red (ASIR).
+  Tenéis que ir al index.html para ver toda la página web o entrando a https://clinicabrossi.iceiy.com/, podéis ver la página web. Este repositorio contiene el Trabajo Fin de Estudios (TFE) para el ciclo de Administración de Sistemas Informáticos en Red (ASIR).
 </p>
 
 ---
